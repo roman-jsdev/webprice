@@ -8,7 +8,7 @@ export const Navbar = () => {
         <NavBrand />
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <NavigationLink to="/" title="Home" />
-          <NavigationLink to="/about" title="About" />
+          <NavigationLink to="/calculator" title="Calculator" />
         </ul>
       </div>
     </nav>
