@@ -3,7 +3,7 @@ import "./App.css";
 import { Navbar } from "./components/Navbar/Navbar";
 import { MainWrapper } from "./containers/Layout/MainWrapper";
 import { ProgressProvider } from "./containers/Quiz/ProgressContext";
-import { About } from "./pages/About";
+import { CalculatorPage } from "./pages/CalculatorPage";
 import { Home } from "./pages/Home";
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
         <MainWrapper>
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/about" exact component={About} />
+            <Route path="/calculator" exact component={CalculatorPage} />
           </Switch>
         </MainWrapper>
       </ProgressProvider>
