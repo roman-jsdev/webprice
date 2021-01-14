@@ -1,14 +1,11 @@
 import { useRef } from "react";
 import { useCartList } from "../Cart/CartListContext";
-import { usePrice } from "../Cart/PriceContext";
 
 export const QUIZ_STEP_2_ITEM = (props) => {
-  const setPrice = usePrice();
   const cartList = useCartList();
   const selectedImg = useRef();
 
   const clickHandler = () => {
-    setPrice.setNewPrice(props.price, true);
     cartList.addItem(props.title);
     selectedImg.current.style.boxShadow = "0 0px 2px 2px #bfbfbf";
   };

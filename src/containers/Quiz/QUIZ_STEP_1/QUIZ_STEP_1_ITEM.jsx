@@ -1,9 +1,7 @@
 import { useRef } from "react";
 import { useCartList } from "../Cart/CartListContext";
-import { usePrice } from "../Cart/PriceContext";
 
 export const QUIZ_STEP_1_ITEM = (props) => {
-  const price = usePrice();
   const cartList = useCartList();
 
   const radioRef = useRef();
@@ -12,15 +10,6 @@ export const QUIZ_STEP_1_ITEM = (props) => {
   const clickHandler = (e) => {
     e.preventDefault();
     cartList.addItem(props.title);
-    console.log(cartList.item.length);
-    if (
-      e.target === titleRef.current &&
-      cartList.item.indexOf(props.title) !== -1
-    ) {
-      price.clear();
-    } else {
-      price.setNewPrice(props.price);
-    }
     radioRef.current.checked = !radioRef.current.checked;
   };
 
