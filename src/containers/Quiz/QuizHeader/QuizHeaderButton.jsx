@@ -1,19 +1,12 @@
-import { useCartList } from "../Cart/CartListContext";
 import { useProgress } from "../ProgressContext";
 
 export const QuizHeaderButton = (props) => {
   const currentProgress = useProgress();
-  const cartList = useCartList();
 
   const clickHandler = () => {
-    if (props.right) {
-      currentProgress.setNewProgress(25);
-      cartList.nextStep();
-      cartList.clear();
-    } else {
-      currentProgress.setNewProgress(-25);
-      cartList.prevStep();
-    }
+    props.right
+      ? currentProgress.setNewProgress(25)
+      : currentProgress.setNewProgress(-25);
   };
   
   const disableNext = () => {

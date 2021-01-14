@@ -1,13 +1,20 @@
 import { useRef } from "react";
+import { storage } from "../../../utils";
 import { useCartList } from "../Cart/CartListContext";
+
+const selectedStyle = {
+  boxShadow: "0 0px 2px 2px #bfbfbf",
+};
 
 export const QUIZ_STEP_2_ITEM = (props) => {
   const cartList = useCartList();
   const selectedImg = useRef();
 
   const clickHandler = () => {
-    cartList.addItem(props.title);
-    selectedImg.current.style.boxShadow = "0 0px 2px 2px #bfbfbf";
+    cartList.nextStep(props.title);
+    storage("design") === props.title
+      ? localStorage.removeItem("design")
+      : storage("design", props.title);
   };
 
   return (
@@ -22,6 +29,7 @@ export const QUIZ_STEP_2_ITEM = (props) => {
       >
         <img
           ref={selectedImg}
+          style={storage("design") === props.title ? selectedStyle : null}
           src="https://www.onthemapmarketing.com/wp-content/themes/otm-wp-theme/resources/assets/scripts/calculator/images/thumbnails/template-wordpress.jpg"
           className="img-fluid"
           alt="text"
