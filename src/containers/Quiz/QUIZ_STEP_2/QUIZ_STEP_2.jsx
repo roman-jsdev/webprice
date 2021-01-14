@@ -1,11 +1,11 @@
 import { QUIZ_STEP_2_ITEM } from "./QUIZ_STEP_2_ITEM";
 
 const cardText = {
-  "Simple Design": {
+  "Design Simple": {
     price: 350,
     desc: "Bolder weight text (relative to the parent element)",
   },
-  "Awesome Design": {
+  "Design Awesome": {
     price: 650,
     desc: "Change a selection to our monospace font stack with",
   },

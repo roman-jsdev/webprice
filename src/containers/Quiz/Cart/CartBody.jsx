@@ -16,12 +16,6 @@ export const CartBody = () => {
             );
           })
         : null}
-      {cartList.item.length ? (
-        <li className="list-group-item" aria-current="true">
-          <i className="fas fa-check me-3"></i>
-          {cartList.item}
-        </li>
-      ) : null}
     </ul>
   );
 };

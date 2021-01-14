@@ -13,7 +13,7 @@ export const PriceProvider = ({ children }) => {
     setPrice(newPrice);
   };
 
-  const clear = () => setPrice(0);
+  const clear = () => setPrice();
 
   return (
     <PriceContext.Provider

@@ -7,6 +7,7 @@ import { CalculatorPage } from "./pages/CalculatorPage";
 import { Home } from "./pages/Home";
 
 function App() {
+  localStorage.clear();
   return (
     <BrowserRouter>
       <Navbar />

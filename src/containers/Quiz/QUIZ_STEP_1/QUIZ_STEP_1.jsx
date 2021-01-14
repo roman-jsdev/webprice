@@ -2,7 +2,7 @@
 import { QUIZ_STEP_1_ITEM } from "./QUIZ_STEP_1_ITEM";
 
 const cardText = {
-  "Single Page Website": {
+  "Website Single Page": {
     price: 1200,
     desc: [
       "Excellent for paid ad campaigns (Google Ads, Facebook)",
@@ -10,7 +10,7 @@ const cardText = {
       "Often used for lead generation campaigns",
     ],
   },
-  "CMS Website": {
+  "Website CMS": {
     price: 2500,
     desc: [
       "Go-to Platform for Service Businesses",
@@ -18,7 +18,7 @@ const cardText = {
       "Excellent for Content Publishing & SEO Work",
     ],
   },
-  "E-Commerce Website": {
+  "Website E-Commerce": {
     price: 3500,
     desc: [
       "Excellent for Content Publishing & SEO Work",

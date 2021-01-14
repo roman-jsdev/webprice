@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { storage } from "../../../utils";
 import { useCartList } from "../Cart/CartListContext";
 
 export const QUIZ_STEP_1_ITEM = (props) => {
@@ -9,8 +10,11 @@ export const QUIZ_STEP_1_ITEM = (props) => {
 
   const clickHandler = (e) => {
     e.preventDefault();
-    cartList.addItem(props.title);
+    cartList.nextStep(props.title);
     radioRef.current.checked = !radioRef.current.checked;
+    storage("website") === radioRef.current.id
+      ? localStorage.removeItem("website")
+      : storage("website", radioRef.current.id);   
   };
 
   return (
@@ -21,7 +25,11 @@ export const QUIZ_STEP_1_ITEM = (props) => {
       >
         <input
           ref={radioRef}
+          readOnly
           className="form-check-input me-3"
+          checked={
+            `flexRadioDefault1${props.id}` === storage("website") ? true : false
+          }
           type="radio"
           name="flexRadioDefault"
           id={`flexRadioDefault1${props.id}`}
