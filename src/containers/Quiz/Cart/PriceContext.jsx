@@ -9,12 +9,8 @@ export const usePrice = () => {
 export const PriceProvider = ({ children }) => {
   const [price, setPrice] = useState(0);
 
-  const setNewPrice = (newPrice, add) => {
-    if (add) {
-      setPrice((prev) => prev + newPrice);
-    } else {
-      setPrice(newPrice);
-    }
+  const setNewPrice = (newPrice) => {
+    setPrice(newPrice);
   };
 
   const clear = () => setPrice(0);

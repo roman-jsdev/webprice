@@ -26,7 +26,7 @@ const buttons = {
   sqrt: <i className="fas fa-square-root"></i>,
   "3,14159": <i className="fas fa-pi"></i>,
   2.71828: "exp",
-  "": <i className="fal fa-calculator-alt"></i>,
+  "": <i className="fab fa-react"></i>,
 };
 
 export const Calculator = () => {
