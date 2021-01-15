@@ -12,6 +12,8 @@ import { useProgress } from "./ProgressContext";
 import { CartListProvider } from "./Cart/CartListContext";
 import { QUIZ_STEP_2 } from "./QUIZ_STEP_2/QUIZ_STEP_2";
 import { QUIZ_STEP_3 } from "./QUIZ_STEP_3/QUIZ_STEP_3";
+import { QUIZ_STEP_4 } from "./QUIZ_STEP_4/QUIZ_STEP_4";
+import { QUIZ_STEP_5 } from "./QUIZ_STEP_5/QUIZ_STEP_5";
 
 export const Quiz = () => {
   const progress = useProgress();
@@ -24,6 +26,10 @@ export const Quiz = () => {
         return <QUIZ_STEP_2 />;
       case 50:
         return <QUIZ_STEP_3 />;
+      case 75:
+        return <QUIZ_STEP_4 />;
+      case 100:
+        return <QUIZ_STEP_5 />;
       default:
         return <QUIZ_STEP_1 />;
     }

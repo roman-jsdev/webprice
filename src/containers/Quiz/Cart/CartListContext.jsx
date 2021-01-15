@@ -74,6 +74,7 @@ export const CartListProvider = ({ children }) => {
     <CartListContext.Provider
       value={{
         list: cartList,
+        set: setCartList,
         nextStep,
         clearAll,
         currentList: filteredList.current,
