@@ -1,7 +1,12 @@
-const pagePrice = 40;
-const copyPagePrice = 10;
-const revisionsDesignPrice = 80;
-const programmingPrice = 125;
+export const calcPrice = (list, item, amount) => {
+  let counter = 0;
+  Object.keys(list).forEach((e) => {
+    if (e === item) {
+      counter = list[item] * amount;
+    }
+  });
+  return counter;
+};
 
 export const priceList = {
   "Website Single Page": 1200,
@@ -9,50 +14,10 @@ export const priceList = {
   "Website E-Commerce": 3500,
   "Design Simple": 350,
   "Design Awesome": 650,
-  "Number of pages 2": 2 * pagePrice,
-  "Number of pages 4": 4 * pagePrice,
-  "Number of pages 6": 6 * pagePrice,
-  "Number of pages 8": 8 * pagePrice,
-  "Number of pages 10": 10 * pagePrice,
-  "Number of pages 12": 12 * pagePrice,
-  "Number of pages 14": 14 * pagePrice,
-  "Number of pages 16": 16 * pagePrice,
-  "Number of pages 18": 18 * pagePrice,
-  "Number of pages 20": 20 * pagePrice,
-  "Number of pages 22": 22 * pagePrice,
-  "Copywriting pages 2": 2 * copyPagePrice,
-  "Copywriting pages 4": 4 * copyPagePrice,
-  "Copywriting pages 6": 6 * copyPagePrice,
-  "Copywriting pages 8": 8 * copyPagePrice,
-  "Copywriting pages 10": 10 * copyPagePrice,
-  "Copywriting pages 12": 12 * copyPagePrice,
-  "Copywriting pages 14": 14 * copyPagePrice,
-  "Copywriting pages 16": 16 * copyPagePrice,
-  "Copywriting pages 18": 18 * copyPagePrice,
-  "Copywriting pages 20": 20 * copyPagePrice,
-  "Copywriting pages 22": 22 * copyPagePrice,
-  "Revisions 1": 1 * revisionsDesignPrice,
-  "Revisions 2": 2 * revisionsDesignPrice,
-  "Revisions 3": 3 * revisionsDesignPrice,
-  "Revisions 4": 4 * revisionsDesignPrice,
-  "Revisions 5": 5 * revisionsDesignPrice,
-  "Revisions 6": 6 * revisionsDesignPrice,
-  "Revisions 7": 7 * revisionsDesignPrice,
-  "Revisions 8": 8 * revisionsDesignPrice,
-  "Revisions 9": 9 * revisionsDesignPrice,
-  "Revisions 10": 10 * revisionsDesignPrice,
-  "Revisions 11": 11 * revisionsDesignPrice,
-  "Custom Programming 10": 10 * programmingPrice,
-  "Custom Programming 20": 20 * programmingPrice,
-  "Custom Programming 30": 30 * programmingPrice,
-  "Custom Programming 40": 40 * programmingPrice,
-  "Custom Programming 50": 50 * programmingPrice,
-  "Custom Programming 60": 60 * programmingPrice,
-  "Custom Programming 70": 70 * programmingPrice,
-  "Custom Programming 80": 80 * programmingPrice,
-  "Custom Programming 90": 90 * programmingPrice,
-  "Custom Programming 100": 100 * programmingPrice,
-  "Custom Programming 110": 110 * programmingPrice,
+  Pages: 40,
+  Copywriting: 10,
+  Revisions: 80,
+  Programming: 125,
   Hosting: 19,
   "Company Logo": 500,
   "Domain Registration": 25,

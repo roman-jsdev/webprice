@@ -24,7 +24,7 @@ export default function DiscreteSlider(props) {
   const array = Array(11)
     .fill(props.step)
     .map((e, i) => (e *= i))
-    .slice(1, 11)
+    .slice(0, 10)
     .concat([props.max]);
 
   const marks = [
