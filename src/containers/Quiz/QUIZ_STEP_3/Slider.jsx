@@ -23,6 +23,7 @@ export default function DiscreteSlider(props) {
   const [value, setValue] = React.useState(storage(`slider-${props.type}`) || 0);
   const result = useRef();
   const inputRef = useRef(0)
+  const inputRefSelect = useRef();
 
   const array = Array(11)
     .fill(props.step)
@@ -96,6 +97,10 @@ export default function DiscreteSlider(props) {
     cartList.nextStep(`${props.title} ${inputRef.current}`);
   };
 
+  const clickHandler = (e) => {
+    inputRefSelect.current.firstElementChild.select();
+  };
+
   return (
     <div className={classes.root} style={{ width: "100%" }}>
       <Typography id="discrete-slider" gutterBottom>
@@ -121,7 +126,9 @@ export default function DiscreteSlider(props) {
             className={classes.input}
             value={value}
             margin="dense"
+            ref={inputRefSelect}
             onChange={handleInputChange}
+            onClick={clickHandler}
             inputProps={{
               step: 10,
               min: 0,
