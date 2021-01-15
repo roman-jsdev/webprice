@@ -103,7 +103,7 @@ export const OrderForm = () => {
             <Grid container item xs={12}>
               <Field
                 component={TextField}
-                type="number"
+                type="phone"
                 label="Business Phone*"
                 name="phone"
               />

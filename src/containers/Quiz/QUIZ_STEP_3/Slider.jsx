@@ -97,7 +97,7 @@ export default function DiscreteSlider(props) {
   };
 
   return (
-    <div className={classes.root} style={{width: '100%'}}>
+    <div className={classes.root} style={{ width: "100%" }}>
       <Typography id="discrete-slider" gutterBottom>
         {props.title} (${props.price}/{props.unit})
       </Typography>
@@ -119,7 +119,7 @@ export default function DiscreteSlider(props) {
         <Grid item xs={3}>
           <Input
             className={classes.input}
-            value={typeof value === "number" ? value : 0}
+            value={value}
             margin="dense"
             onChange={handleInputChange}
             inputProps={{
