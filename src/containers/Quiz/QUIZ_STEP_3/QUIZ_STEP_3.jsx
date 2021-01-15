@@ -90,7 +90,7 @@ export const QUIZ_STEP_3 = () => {
       <div className="col-md-6">
         {Object.keys(sliders).map((e, i) => {
           return (
-            <div className="row" key={i}>
+            <div className="row mb-2" key={i}>
               <DiscreteSlider
                 title={e}
                 type={sliders[e].type}

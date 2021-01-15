@@ -4,6 +4,8 @@ import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import { useCartList } from "../Cart/CartListContext";
 import { storage } from "../../../utils";
+import Input from "@material-ui/core/Input";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   root: {
@@ -18,8 +20,9 @@ function valuetext(value) {
 export default function DiscreteSlider(props) {
   const cartList = useCartList();
   const classes = useStyles();
-  const [value, setValue] = React.useState(storage(`slider-${props.type}`));
+  const [value, setValue] = React.useState(storage(`slider-${props.type}`) || 0);
   const result = useRef();
+  const inputRef = useRef(0)
 
   const array = Array(11)
     .fill(props.step)
@@ -74,36 +77,60 @@ export default function DiscreteSlider(props) {
     },
   ];
 
-  const handleSliderChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   useEffect(() => {
     result.current = value;
     storage(`slider-${props.type}`, result.current);
   });
 
+  const handleSliderChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   const handleChangeCommitted = () => {
     cartList.nextStep(`${props.title} ${result.current}`);
   };
 
+  const handleInputChange = (event) => {
+    setValue(event.target.value === "" ? "" : Number(event.target.value));
+    inputRef.current = event.target.value === "" ? "" : Number(event.target.value)
+    cartList.nextStep(`${props.title} ${inputRef.current}`);
+  };
+
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{width: '100%'}}>
       <Typography id="discrete-slider" gutterBottom>
         {props.title} (${props.price}/{props.unit})
       </Typography>
-      <Slider
-        defaultValue={0}
-        onChange={handleSliderChange}
-        onChangeCommitted={() => handleChangeCommitted()}
-        value={typeof value === "number" ? value : 0}
-        getAriaValueText={valuetext}
-        aria-labelledby="discrete-slider"
-        step={props.step}
-        marks={marks}
-        min={props.min}
-        max={props.max}
-      />
+      <Grid container spacing={5}>
+        <Grid item xs={8}>
+          <Slider
+            defaultValue={0}
+            onChange={handleSliderChange}
+            onChangeCommitted={() => handleChangeCommitted()}
+            value={typeof value === "number" ? value : 0}
+            getAriaValueText={valuetext}
+            aria-labelledby="input-slider"
+            step={props.step}
+            marks={marks}
+            min={props.min}
+            max={props.max}
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <Input
+            className={classes.input}
+            value={typeof value === "number" ? value : 0}
+            margin="dense"
+            onChange={handleInputChange}
+            inputProps={{
+              step: 10,
+              min: 0,
+              type: "number",
+              "aria-labelledby": "input-slider",
+            }}
+          />
+        </Grid>
+      </Grid>
     </div>
   );
 }

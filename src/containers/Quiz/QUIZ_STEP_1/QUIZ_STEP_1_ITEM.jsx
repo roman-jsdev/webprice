@@ -18,7 +18,7 @@ export const QUIZ_STEP_1_ITEM = (props) => {
   };
 
   return (
-    <div className="col-md-4 border-end">
+    <div className="col-md-4 border-end first-step-col">
       <div
         className="form-check justify-content-center d-flex p-0"
         onClick={(e) => clickHandler(e)}
