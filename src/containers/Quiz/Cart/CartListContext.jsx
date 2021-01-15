@@ -1,34 +1,58 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
 import { storage } from "../../../utils";
 import { usePrice } from "./PriceContext";
-import { priceList } from "./priceList";
+import { calcPrice, priceList } from "./priceList";
 
 const CartListContext = createContext();
 
 export const useCartList = () => useContext(CartListContext);
 
 export const CartListProvider = ({ children }) => {
-  const [cartList, setCartList] = useState(storage('cart') || []);
+  const [cartList, setCartList] = useState(storage("cart") || []);
   const totalItems = useRef([]);
+  const filteredList = useRef([]);
 
   const price = usePrice();
 
   useEffect(() => {
     let counter = 0;
     totalItems.current = [...cartList];
+    const arr = [];
+
+    totalItems.current.forEach((e) => {
+      const str = e.split(/[\s,]+/);
+      const obj = {
+        [str[0]]: str[str.length - 1],
+      };
+      arr.push(obj);
+    });
+
+    arr.forEach((e) => {
+      Object.keys(e).forEach((i) => {
+        if (!isNaN(Number(e[i]))) {
+          const fromList = calcPrice(priceList, i, Number(e[i]));
+          counter += fromList;
+        }
+      });
+    });
+
     Object.keys(priceList).forEach((item) => {
       if (totalItems.current.indexOf(item) !== -1) {
         counter += priceList[item];
       }
       price.setNewPrice(counter);
-      storage('cart', cartList)
+      storage("cart", cartList);
     });
+
+    filteredList.current = cartList.filter(
+      (e) => Number(e.split(/[, ]+/).pop()) !== 0
+    );
   });
 
   const nextStep = (newItem) =>
     setCartList((prev) => {
-      const filteredArray = prev.filter((elm) =>
-        elm.includes(newItem.substr(0, 5))
+      const filteredArray = prev.filter((e) =>
+        e.includes(newItem.substr(0, 5))
       );
       if (filteredArray.length) {
         if (filteredArray.indexOf(newItem) !== -1) {
@@ -44,12 +68,6 @@ export const CartListProvider = ({ children }) => {
       return [...prev, newItem];
     });
 
-  const prevStep = () =>
-    setCartList((prev) => {
-      const result = prev.splice(-1, 1);
-      return result;
-    });
-
   const clearAll = () => setCartList([]);
 
   return (
@@ -58,7 +76,7 @@ export const CartListProvider = ({ children }) => {
         list: cartList,
         nextStep,
         clearAll,
-        prevStep,
+        currentList: filteredList.current,
       }}
     >
       {children}

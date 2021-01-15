@@ -5,8 +5,8 @@ export const CartBody = () => {
 
   return (
     <ul className="list-group pt-4">
-      {cartList.list.length
-        ? cartList.list.map((item, index) => {
+      {cartList.currentList.length
+        ? cartList.currentList.map((item, index) => {
             return (
               <li key={index} className="list-group-item" aria-current="true">
                 <i className="fas fa-check me-3"></i>
