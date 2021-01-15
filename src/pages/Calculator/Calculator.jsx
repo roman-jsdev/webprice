@@ -41,7 +41,11 @@ export const Calculator = () => {
       <div className="row">
         <div
           className="col-12 col-md-12 col-lg-8 offset-lg-2 col-xl-4 offset-xl-4 offset-0 bg-dark"
-          style={{ borderRadius: 15, padding: "50px" }}
+          style={{
+            borderRadius: 15,
+            padding: "50px",
+            boxShadow: "0 0 0px 5px #a5a5a5",
+          }}
         >
           <div
             className="row bg-light p-4 mb-3"

@@ -13,6 +13,10 @@ export const QuizHeaderButton = (props) => {
     switch (currentProgress.progress) {
       case 0:
         return false;
+      case 75:
+        return true;
+      case 100:
+        return true;
       default:
         break;
     }
@@ -21,6 +25,8 @@ export const QuizHeaderButton = (props) => {
   const disableBack = () => {
     switch (currentProgress.progress) {
       case 0:
+        return true;
+      case 100:
         return true;
       default:
         break;
