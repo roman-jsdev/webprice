@@ -4,10 +4,13 @@ import { TextField } from "formik-material-ui";
 import Grid from "@material-ui/core/Grid";
 import { useCartList } from "../Cart/CartListContext";
 import { useProgress } from "../ProgressContext";
+import axios from "axios";
+import { usePrice } from "../Cart/PriceContext";
 
 export const OrderForm = () => {
   const cart = useCartList();
   const progress = useProgress();
+  const price = usePrice();
 
   return (
     <Formik
@@ -19,6 +22,7 @@ export const OrderForm = () => {
         url: "",
         phone: "",
         cart: cart.currentList,
+        _total_price_: "$" + price.current,
       }}
       validate={(values) => {
         const errors = {};
@@ -49,12 +53,14 @@ export const OrderForm = () => {
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          setSubmitting(false);
-          alert(JSON.stringify(values, null, 2));
-          progress.setNewProgress(25);
-        }, 1500);
+      onSubmit={async (values, { setSubmitting }) => {
+        setSubmitting(true);
+        const id = Date.now().toString();
+        await axios.put(
+          `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`,
+          JSON.stringify(values, null, 2)
+        );
+        progress.setNewProgress(25);
       }}
     >
       {({ submitForm, isSubmitting }) => (

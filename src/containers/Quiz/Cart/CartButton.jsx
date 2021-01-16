@@ -20,7 +20,7 @@ export const CartButton = ({ title }) => {
   return (
     <div className="row p-4 pb-0">
       <button className="btn btn-primary" onClick={() => clickHandler()}>
-        {title}
+        {progress.progress === 100 ? "Make New Order" : title}
       </button>
     </div>
   );
