@@ -5,10 +5,12 @@ import Grid from "@material-ui/core/Grid";
 import { useCartList } from "../Cart/CartListContext";
 import { useProgress } from "../ProgressContext";
 import axios from "axios";
+import { usePrice } from "../Cart/PriceContext";
 
 export const OrderForm = () => {
   const cart = useCartList();
   const progress = useProgress();
+  const price = usePrice();
 
   return (
     <Formik
@@ -20,6 +22,7 @@ export const OrderForm = () => {
         url: "",
         phone: "",
         cart: cart.currentList,
+        _total_price_: "$" + price.current,
       }}
       validate={(values) => {
         const errors = {};

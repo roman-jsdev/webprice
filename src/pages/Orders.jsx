@@ -13,12 +13,19 @@ export const Orders = () => {
       const res = await axios.get(
         "https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders.json"
       );
-      orderIdRef.current = Object.keys(res.data).map((e) => e.split("-").pop());
-      loading.current = false;
-      setResponse(Object.keys(res.data).map((e) => res.data[e]));
+      if (res.data !== null) {
+        orderIdRef.current = Object.keys(res.data).map((e) =>
+          e.split("-").pop()
+        );
+        loading.current = false;
+        setResponse(Object.keys(res.data).map((e) => res.data[e]));
+      } else {
+        loading.current = false;
+        setResponse(null);
+      }
     };
     getOrders();
-  }, []);
+  }, [state]);
 
   const arrayToNewline = (e) => {
     return e.map((e, i) => (
@@ -34,21 +41,29 @@ export const Orders = () => {
       await axios.delete(
         `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`
       );
+      orderIdRef.current = orderIdRef.current.filter((e) => e !== id);
+      setState((prev) => prev + 1);
     };
     deleteRecord(id);
-    orderIdRef.current.filter((e) => e !== id);
-    setState((prev) => prev + 1);
   };
 
   return (
     <div className="row">
-      <h1 className="text-center mb-4">Orders</h1>
+      <div className="row justify-content-center">
+        <h1 className="text-center mb-4">Orders</h1>
+      </div>
       <div className="row justify-content-center">
         {loading.current ? (
           <Loader />
-        ) : (
+        ) : response ? (
           response.map((e, i) => (
-            <div className="mb-4 bg-light p-4 col-md-5 ms-4" key={i}>
+            <div
+              className="mb-4 bg-light p-4 col-md-5 ms-4 d-flex flex-column justify-content-start"
+              key={i}
+            >
+              <div className="text-center mb-3 fs-3 fw-bold text-decoration-underline">
+                Order #{orderIdRef.current[i]}
+              </div>
               {Object.keys(e).map((el, key) => (
                 <div className="row" key={key}>
                   <div className="col-md-6 fs-4 text-center fw-bold border">
@@ -59,14 +74,18 @@ export const Orders = () => {
                   </div>
                 </div>
               ))}
-              <button
-                className="btn btn-danger"
-                onClick={() => clickHandler(orderIdRef.current[i])}
-              >
-                Delete Order
-              </button>
+              <div className="d-flex justify-content-center mt-4">
+                <button
+                  className="btn btn-danger"
+                  onClick={() => clickHandler(orderIdRef.current[i])}
+                >
+                  Delete Order
+                </button>
+              </div>
             </div>
           ))
+        ) : (
+          <div className="text-center fs-3 fw-bold">No orders!</div>
         )}
       </div>
     </div>
