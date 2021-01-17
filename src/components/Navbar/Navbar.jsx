@@ -1,6 +1,7 @@
 import { NavigationLink } from "./NavigationLink";
 import { NavBrand } from "./NavBrand";
 import { useStore } from "../../store/store";
+import classes from "./Navbar.module.css";
 
 export const Navbar = () => {
   const globalState = useStore();
@@ -21,10 +22,12 @@ export const Navbar = () => {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-warning">
+    <nav
+      className={`navbar navbar-expand-lg navbar-dark bg-warning main-color ${classes.Navbar}`}
+    >
       <div className="container-fluid">
         <NavBrand />
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul className="navbar-nav me-auto mb-0 mb-lg-0 flex-row">
           {links.map((e, i) => (
             <NavigationLink key={i} to={e.to} title={e.title} exact={e.exact} />
           ))}

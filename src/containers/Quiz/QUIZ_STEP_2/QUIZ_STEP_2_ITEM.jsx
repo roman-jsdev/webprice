@@ -18,7 +18,7 @@ export const QUIZ_STEP_2_ITEM = (props) => {
   };
 
   return (
-    <div className="col-md-6">
+    <div className="col-md-6 column-ease-in">
       <p className="m-0 text-center fs-4 fw-bold mb-2">{props.title}</p>
       <p className="m-2 text-center fw-bold mb-2">${props.price}</p>
       <p className="m-0 text-center mb-4">{props.desc}</p>
@@ -30,8 +30,8 @@ export const QUIZ_STEP_2_ITEM = (props) => {
         <img
           ref={selectedImg}
           style={storage("design") === props.title ? selectedStyle : null}
-          src="https://www.onthemapmarketing.com/wp-content/themes/otm-wp-theme/resources/assets/scripts/calculator/images/thumbnails/template-wordpress.jpg"
-          className="img-fluid"
+          src={props.imgSrc}
+          className="img-fluid img-hover"
           alt="text"
         />
       </div>

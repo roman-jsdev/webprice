@@ -109,6 +109,7 @@ export default function DiscreteSlider(props) {
       <Grid container spacing={5}>
         <Grid item xs={8}>
           <Slider
+            color="primary"
             defaultValue={0}
             onChange={handleSliderChange}
             onChangeCommitted={() => handleChangeCommitted()}

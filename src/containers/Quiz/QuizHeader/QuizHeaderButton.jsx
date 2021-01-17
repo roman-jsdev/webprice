@@ -1,4 +1,5 @@
 import { useProgress } from "../ProgressContext";
+import classes from "./Header.module.css";
 
 export const QuizHeaderButton = (props) => {
   const currentProgress = useProgress();
@@ -37,7 +38,7 @@ export const QuizHeaderButton = (props) => {
     <div className={`col-3 ${props.right ? "text-end" : "text-start"}`}>
       <button
         disabled={props.type === "next" ? disableNext() : disableBack()}
-        className="btn btn-primary"
+        className={`btn ${classes.Btn}`}
         onClick={() => clickHandler()}
         data-type={props.type}
       >

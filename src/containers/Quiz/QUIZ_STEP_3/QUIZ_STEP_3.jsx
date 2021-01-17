@@ -87,7 +87,7 @@ const buttons = {
 export const QUIZ_STEP_3 = () => {
   return (
     <>
-      <div className="col-md-6">
+      <div className="col-md-6 column-ease-in">
         {Object.keys(sliders).map((e, i) => {
           return (
             <div className="row mb-2" key={i}>
@@ -104,7 +104,7 @@ export const QUIZ_STEP_3 = () => {
           );
         })}
       </div>
-      <div className="col-md-6">
+      <div className="col-md-6 column-ease-in">
         <div className="row">
           {Object.keys(buttons).map((e, i) => {
             return (

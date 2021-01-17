@@ -10,7 +10,7 @@ export const QUIZ_STEP_5 = () => {
   }, []);
 
   return (
-    <div className="row">
+    <div className="row column-ease-in not-p-mob">
       <h3 className="text-center">Thank you for your order</h3>
       <p className="text-center">We contact you as soon as possible</p>
     </div>

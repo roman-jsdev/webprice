@@ -46,7 +46,14 @@ export const Quiz = () => {
         <Cart>
           <CartHeader />
           <CartBody />
-          <CartButton title="CLEAR CART" />
+          {progress.progress === 100 ? (
+            <CartButton title="Checkout" type="checkout" />
+          ) : (
+            <>
+              <CartButton title="Checkout" type="checkout" />
+              <CartButton title="Clear Cart" type="clear" />
+            </>
+          )}
         </Cart>
       </CartListProvider>
     </PriceProvider>

@@ -1,10 +1,11 @@
 import { useProgress } from "./ProgressContext";
+import classes from "./QuizContainer.module.css";
 
 export const QuizProgress = ({ progress }) => {
   const currentProgress = useProgress();
 
   return (
-    <div className="row">
+    <div className={`row ${classes.FullWidth}`}>
       <div className="progress p-0 rounded-0">
         <div
           className="progress-bar"

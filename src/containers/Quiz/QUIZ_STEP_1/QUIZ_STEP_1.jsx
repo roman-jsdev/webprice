@@ -9,6 +9,7 @@ const cardText = {
       "Great for small product launches",
       "Often used for lead generation campaigns",
     ],
+    imgSrc: "./type-1.jpg",
   },
   "Website CMS": {
     price: 2500,
@@ -17,6 +18,7 @@ const cardText = {
       "Over 100million Site Owners Use Wordpress",
       "Excellent for Content Publishing & SEO Work",
     ],
+    imgSrc: "./type-2.jpg",
   },
   "Website E-Commerce": {
     price: 3500,
@@ -25,6 +27,7 @@ const cardText = {
       "Secure Payment Platforms",
       "Refined Product Management Systems",
     ],
+    imgSrc: "./type-3.jpg",
   },
 };
 
@@ -39,6 +42,7 @@ export const QUIZ_STEP_1 = () => {
             desc={cardText[item].desc}
             id={id}
             price={cardText[item].price}
+            imgSrc={cardText[item].imgSrc}
           />
         );
       })}
