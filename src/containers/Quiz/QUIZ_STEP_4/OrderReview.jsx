@@ -28,14 +28,18 @@ export const OrderReview = () => {
     <>
       <p className="m-0 fs-4 fw-bold">Your order summary</p>
       <div className="row mt-4">
-        <div className="col-md-8 fw-bold">Service</div>
-        <div className="col-md-3 offset-md-1 fw-bold">Price</div>
+        <div className="col-md-8 col-8 fw-bold mobile-review_title">
+          Service
+        </div>
+        <div className="col-md-3 col-4 offset-md-1 fw-bold mobile-review_price">
+          Price
+        </div>
       </div>
       {list.currentList.map((e, i) => {
         return (
           <div className="row mt-2" key={i}>
-            <div className="col-md-8">{e}</div>
-            <div className="col-md-3 offset-md-1">
+            <div className="col-md-8 col-8 mobile-review_title">{e}</div>
+            <div className="col-md-3 col-4 offset-md-1 mobile-review_price">
               {Object.keys(priceList).indexOf(e) !== -1
                 ? priceList[e]
                 : calculatePrice(e)}

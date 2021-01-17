@@ -1,0 +1,15 @@
+.Btn {
+  background-color: #ffffff12;
+  border: none;
+  box-shadow: 0 0 10px 2px #ffffff3d;
+  color: white !important;
+}
+
+.Btn:hover {
+  background-color: #ffffff2e;
+  box-shadow: 0 0 10px 2px #ffffff5c;
+}
+
+.Btn:focus {
+  box-shadow: 0 0 10px 2px #ffffff3d;
+}

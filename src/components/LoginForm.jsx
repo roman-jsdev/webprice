@@ -97,6 +97,7 @@ export const LoginForm = () => {
                 type="email"
                 label="Email"
                 autoComplete="on"
+                style={{ width: "100%" }}
               />
             </Grid>
             <Grid
@@ -111,6 +112,7 @@ export const LoginForm = () => {
                 label="Password"
                 name="password"
                 autoComplete="on"
+                style={{width: '100%'}}
               />
             </Grid>
             <Grid
@@ -125,6 +127,7 @@ export const LoginForm = () => {
                 color="primary"
                 disabled={isSubmitting}
                 onClick={submitForm}
+                style={{width: '100%'}}
               >
                 Login
               </Button>

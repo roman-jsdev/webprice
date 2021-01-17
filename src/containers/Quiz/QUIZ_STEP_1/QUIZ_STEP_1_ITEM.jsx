@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { storage } from "../../../utils";
 import { useCartList } from "../Cart/CartListContext";
+import classes from "./QUIZ_STEP_1_ITEM.module.css";
 
 export const QUIZ_STEP_1_ITEM = (props) => {
   const cartList = useCartList();
@@ -14,55 +15,57 @@ export const QUIZ_STEP_1_ITEM = (props) => {
     radioRef.current.checked = !radioRef.current.checked;
     storage("website") === radioRef.current.id
       ? sessionStorage.removeItem("website")
-      : storage("website", radioRef.current.id);   
+      : storage("website", radioRef.current.id);
   };
 
   return (
-    <div className="col-md-4 border-end first-step-col">
-      <div
-        className="form-check justify-content-center d-flex p-0"
-        onClick={(e) => clickHandler(e)}
-      >
-        <input
-          ref={radioRef}
-          readOnly
-          className="form-check-input me-3"
-          checked={
-            `flexRadioDefault1${props.id}` === storage("website") ? true : false
-          }
-          type="radio"
-          name="flexRadioDefault"
-          id={`flexRadioDefault1${props.id}`}
-          style={{ pointerEvents: "none" }}
-        />
-        <label
-          ref={titleRef}
-          className="form-check-label fw-bold"
-          htmlFor={`flexRadioDefault1${props.id}`}
+    <div
+      className={`col-md-4 border-end first-step-col column-ease-in rl-flex-column`}
+    >
+      <div>
+        <div
+          className="form-check justify-content-center d-flex p-0"
+          onClick={(e) => clickHandler(e)}
         >
-          {props.title}
-        </label>
+          <input
+            ref={radioRef}
+            readOnly
+            className="form-check-input me-3"
+            checked={
+              `flexRadioDefault1${props.id}` === storage("website")
+                ? true
+                : false
+            }
+            type="radio"
+            name="flexRadioDefault"
+            id={`flexRadioDefault1${props.id}`}
+            style={{ pointerEvents: "none" }}
+          />
+          <label
+            ref={titleRef}
+            className={`form-check-label fw-bold ${classes.Label}`}
+            htmlFor={`flexRadioDefault1${props.id}`}
+          >
+            {props.title}
+          </label>
+        </div>
+        <p className="m-2 text-center fw-bold mb-0">${props.price}</p>
+        <ul className="pt-3 p-0 d-flex flex-column">
+          {props.desc.map((desc, id) => {
+            return (
+              <li
+                key={id}
+                className={`list-group-item list-group-item-light d-flex align-items-center ${classes.List}`}
+              >
+                <i className="fas fa-check me-3"></i>
+                <p className="m-0 text-start">{desc}</p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
-      <p className="m-2 text-center fw-bold mb-0">${props.price}</p>
-      <ul className="pt-3 p-0 d-flex flex-column">
-        {props.desc.map((desc, id) => {
-          return (
-            <li
-              key={id}
-              className="list-group-item list-group-item-light d-flex align-items-center"
-            >
-              <i className="fas fa-check me-3"></i>
-              <p className="m-0 text-start">{desc}</p>
-            </li>
-          );
-        })}
-      </ul>
       <div className="d-flex justify-content-center">
-        <img
-          src="https://www.onthemapmarketing.com/wp-content/themes/otm-wp-theme/resources/assets/scripts/calculator/images/website-types/singlePage.jpg"
-          className="img-fluid"
-          alt="text"
-        />
+        <img src={props.imgSrc} className="img-fluid" alt="text" />
       </div>
     </div>
   );

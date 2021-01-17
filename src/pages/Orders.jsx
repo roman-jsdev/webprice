@@ -10,7 +10,6 @@ export const Orders = () => {
 
   useEffect(() => {
     let mounted = true;
-
     const getOrders = async () => {
       try {
         const res = await axios.get(
@@ -27,7 +26,7 @@ export const Orders = () => {
           setResponse(null);
         }
       } catch (e) {
-        alert('Some Problems With Data Fetching')
+        alert("Some Problems With Data Fetching");
         console.log(e);
       }
     };
@@ -54,7 +53,7 @@ export const Orders = () => {
         orderIdRef.current = orderIdRef.current.filter((e) => e !== id);
         setState((prev) => prev + 1);
       } catch (e) {
-        alert('Some Problems With Data Fetching')
+        alert("Some Problems With Data Fetching");
         console.log(e);
       }
     };
@@ -63,7 +62,7 @@ export const Orders = () => {
 
   return (
     <div className="row">
-      <div className="row justify-content-center">
+      <div className="row justify-content-center" style={{marginBottom: '35px'}}>
         <h1 className="text-center mb-4">Orders</h1>
       </div>
       <div className="row justify-content-center">
@@ -72,25 +71,30 @@ export const Orders = () => {
         ) : response ? (
           response.map((e, i) => (
             <div
-              className="mb-4 bg-light p-4 col-md-5 ms-4 d-flex flex-column justify-content-start"
+              className="mb-4 bg-light p-4 col-xl-5 ms-4 d-flex flex-column justify-content-between column-ease-in"
               key={i}
+              style={{borderRadius: '15px',     border: '1px solid #e8e8e8'}}
             >
-              <div className="text-center mb-3 fs-3 fw-bold text-decoration-underline">
-                Order #{orderIdRef.current[i]}
-              </div>
-              {Object.keys(e).map((el, key) => (
-                <div className="row" key={key}>
-                  <div className="col-md-6 fs-4 text-center fw-bold border">
-                    {el.charAt(0).toUpperCase() + el.slice(1)}
-                  </div>
-                  <div className="col-md-6 text-start border d-flex align-items-center">
-                    {typeof e[el] === "object" ? arrayToNewline(e[el]) : e[el]}
-                  </div>
+              <div>
+                <div className="text-center mb-3 fs-3 fw-bold text-decoration-underline">
+                  Order #{orderIdRef.current[i]}
                 </div>
-              ))}
+                {Object.keys(e).map((el, key) => (
+                  <div className="row" key={key}>
+                    <div className="col-md-6 fs-4 text-center fw-bold border">
+                      {el.charAt(0).toUpperCase() + el.slice(1)}
+                    </div>
+                    <div className="col-md-6 text-start border d-flex align-items-center">
+                      {typeof e[el] === "object"
+                        ? arrayToNewline(e[el])
+                        : e[el]}
+                    </div>
+                  </div>
+                ))}
+              </div>
               <div className="d-flex justify-content-center mt-4">
                 <button
-                  className="btn btn-danger"
+                  className="btn MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary"
                   onClick={() => clickHandler(orderIdRef.current[i])}
                 >
                   Delete Order

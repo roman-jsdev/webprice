@@ -1,0 +1,8 @@
+.List {
+  border: none !important;
+}
+
+.Label {
+  cursor: pointer;
+  user-select: none;
+}

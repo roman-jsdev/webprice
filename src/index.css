@@ -1,8 +1,19 @@
+:root {
+  --main-color: #252525;
+  --main-color_hover: #3d3d3d;
+}
+
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+    sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,10 +23,201 @@ code {
     monospace;
 }
 
+main {
+  margin: 3.5rem 0;
+}
+
 .design_selected {
   box-shadow: none !important;
 }
 
 .first-step-col:last-child {
   border: none !important;
+}
+
+.main-color {
+  background-color: var(--main-color) !important;
+}
+
+.form-check-input:checked {
+  background-color: var(--main-color) !important;
+  border-color: var(--main-color) !important;
+}
+
+.fa,
+.fas {
+  font-family: "Font Awesome 5 Pro" !important;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands" !important;
+}
+
+.progress-bar {
+  background-color: #4b4a4a;
+  height: 10px;
+  font-size: 0;
+}
+
+.progress {
+  background-color: #9e9e9e1c;
+  height: 10px;
+}
+
+.MuiSlider-thumbColorPrimary {
+  background-color: var(--main-color) !important;
+}
+
+.MuiSlider-root {
+  color: var(--main-color) !important;
+}
+
+.MuiSwitch-colorPrimary.Mui-checked {
+  color: var(--main-color) !important;
+}
+
+.MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+  background-color: var(--main-color) !important;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
+  padding: 14px;
+  background-color: var(--main-color) !important;
+  box-shadow: none;
+  color: white !important;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary:hover {
+  background-color: var(--main-color_hover) !important;
+}
+
+button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary:focus {
+  outline: none;
+}
+
+.MuiButton-contained.Mui-disabled {
+  opacity: 0.6;
+}
+
+.MuiInput-underline:after {
+  border-color: var(--main-color) !important;
+}
+
+.MuiInput-underline.Mui-error:after {
+  border-color: #f44336 !important;
+}
+
+@keyframes ease-column {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.column-ease-in {
+  transition: all 0.3s ease-in;
+  animation: ease-column 0.3s ease-in;
+}
+
+@keyframes ease-column {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.MuiInputBase-input:-webkit-autofill {
+  background-color: #4b4a4a !important;
+}
+
+.rl-flex-column {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: black !important;
+}
+
+.img-hover {
+  transition: all 0.3s;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.img-hover:hover {
+  box-shadow: 0px 0px 10px #969696;
+}
+
+@media (max-width: 768px) {
+  .border-end {
+    border: none !important;
+  }
+
+  .column-ease-in {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #eee !important;
+    padding-bottom: 25px;
+  }
+
+  .MuiInputBase-input {
+    width: 100% !important;
+  }
+
+  label + .MuiInput-formControl {
+    width: 100% !important;
+  }
+
+  .MuiFormControl-root {
+    width: 100% !important;
+  }
+
+  button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary {
+    width: 100% !important;
+  }
+
+  .mobile-review_price {
+    text-align: right;
+  }
+
+  .mobile-review_total {
+    text-align: right;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .not-p-mob {
+    padding-right: 0 !important;
+  }
+}
+
+@media (max-width: 333px) {
+  nav > .container-fluid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  ul.navbar-nav.me-auto.mb-0.mb-lg-0.flex-row {
+    margin: 0 !important;
+  }
+
+  a.navbar-brand.active {
+    margin: 0 !important;
+  }
 }

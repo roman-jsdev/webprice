@@ -3,11 +3,13 @@ import { QUIZ_STEP_2_ITEM } from "./QUIZ_STEP_2_ITEM";
 const cardText = {
   "Design Simple": {
     price: 350,
-    desc: "Bolder weight text (relative to the parent element)",
+    desc: "Beautiful typography, strategic use of colors and graphics, and obstruction-free aesthetics.",
+    imgSrc: './design-1.png'
   },
   "Design Awesome": {
     price: 650,
-    desc: "Change a selection to our monospace font stack with",
+    desc: "Effective and evolving design, keeping up with design trends, and best creativity.",
+    imgSrc: './design-2.png'
   },
 };
 
@@ -19,6 +21,7 @@ export const QUIZ_STEP_2 = () => {
         title={card}
         price={cardText[card].price}
         desc={cardText[card].desc}
+        imgSrc={cardText[card].imgSrc}
       />
     );
   });

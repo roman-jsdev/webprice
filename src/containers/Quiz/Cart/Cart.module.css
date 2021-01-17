@@ -1,0 +1,26 @@
+.Checkout {
+  background-color: var(--main-color);
+  color: white;
+  text-transform: uppercase;
+}
+
+.Checkout:hover {
+  background-color: var(--main-color_hover);
+  color: white;
+}
+
+.Checkout:focus,
+.Clear:focus {
+  box-shadow: none;
+}
+
+.Clear {
+  background-color: #f7f7f7;
+  color: #a8a8a8;
+  text-transform: uppercase;
+}
+
+.Clear:hover {
+  background-color: #efefef;
+  color: #919191;
+}
