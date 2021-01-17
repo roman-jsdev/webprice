@@ -56,11 +56,16 @@ export const OrderForm = () => {
       onSubmit={async (values, { setSubmitting }) => {
         setSubmitting(true);
         const id = Date.now().toString();
-        await axios.put(
-          `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`,
-          JSON.stringify(values, null, 2)
-        );
-        progress.setNewProgress(25);
+        try {
+          await axios.put(
+            `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`,
+            JSON.stringify(values, null, 2)
+          );
+          progress.setNewProgress(25);
+        } catch (e) {
+          alert('Some Problems With Data Fetching')
+          console.log(e);
+        }
       }}
     >
       {({ submitForm, isSubmitting }) => (

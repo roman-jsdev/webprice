@@ -5,7 +5,7 @@ export const NavigationLink = (props) => {
     <li className="nav-item">
       <NavLink
         className="nav-link"
-        exact
+        exact={props.exact}
         to={props.to}
         activeClassName="active"
       >

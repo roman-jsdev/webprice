@@ -13,7 +13,7 @@ export const QUIZ_STEP_2_ITEM = (props) => {
   const clickHandler = () => {
     cartList.nextStep(props.title);
     storage("design") === props.title
-      ? localStorage.removeItem("design")
+      ? sessionStorage.removeItem("design")
       : storage("design", props.title);
   };
 

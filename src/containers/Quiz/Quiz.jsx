@@ -37,7 +37,7 @@ export const Quiz = () => {
 
   return (
     <PriceProvider>
-    <CartListProvider>
+      <CartListProvider>
         <QuizContainer>
           <QuizHeader />
           <QuizProgress />
@@ -48,7 +48,7 @@ export const Quiz = () => {
           <CartBody />
           <CartButton title="CLEAR CART" />
         </Cart>
-    </CartListProvider>
+      </CartListProvider>
     </PriceProvider>
   );
 };

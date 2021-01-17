@@ -13,7 +13,7 @@ export const QUIZ_STEP_1_ITEM = (props) => {
     cartList.nextStep(props.title);
     radioRef.current.checked = !radioRef.current.checked;
     storage("website") === radioRef.current.id
-      ? localStorage.removeItem("website")
+      ? sessionStorage.removeItem("website")
       : storage("website", radioRef.current.id);   
   };
 
