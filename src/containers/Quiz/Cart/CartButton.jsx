@@ -8,7 +8,7 @@ export const CartButton = ({ title }) => {
   const price = usePrice();
 
   const clickHandler = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     cartList.clearAll();
     progress.clear();
     price.clear();

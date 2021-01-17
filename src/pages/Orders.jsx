@@ -9,22 +9,31 @@ export const Orders = () => {
   const [state, setState] = useState(0);
 
   useEffect(() => {
+    let mounted = true;
+
     const getOrders = async () => {
-      const res = await axios.get(
-        "https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders.json"
-      );
-      if (res.data !== null) {
-        orderIdRef.current = Object.keys(res.data).map((e) =>
-          e.split("-").pop()
+      try {
+        const res = await axios.get(
+          "https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders.json"
         );
-        loading.current = false;
-        setResponse(Object.keys(res.data).map((e) => res.data[e]));
-      } else {
-        loading.current = false;
-        setResponse(null);
+        if (res.data !== null && mounted) {
+          orderIdRef.current = Object.keys(res.data).map((e) =>
+            e.split("-").pop()
+          );
+          loading.current = false;
+          setResponse(Object.keys(res.data).map((e) => res.data[e]));
+        } else {
+          loading.current = false;
+          setResponse(null);
+        }
+      } catch (e) {
+        alert('Some Problems With Data Fetching')
+        console.log(e);
       }
     };
     getOrders();
+
+    return () => (mounted = false);
   }, [state]);
 
   const arrayToNewline = (e) => {
@@ -38,11 +47,16 @@ export const Orders = () => {
 
   const clickHandler = (id) => {
     const deleteRecord = async (id) => {
-      await axios.delete(
-        `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`
-      );
-      orderIdRef.current = orderIdRef.current.filter((e) => e !== id);
-      setState((prev) => prev + 1);
+      try {
+        await axios.delete(
+          `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`
+        );
+        orderIdRef.current = orderIdRef.current.filter((e) => e !== id);
+        setState((prev) => prev + 1);
+      } catch (e) {
+        alert('Some Problems With Data Fetching')
+        console.log(e);
+      }
     };
     deleteRecord(id);
   };

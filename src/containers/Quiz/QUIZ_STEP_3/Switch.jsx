@@ -12,7 +12,7 @@ export default function SwitchesGroup(props) {
   const handleChange = (event) => {
     setState(!state);
     storage(`button-${props.title}`) === true
-      ? localStorage.removeItem(`button-${props.title}`)
+      ? sessionStorage.removeItem(`button-${props.title}`)
       : storage(`button-${props.title}`, true);
     cartList.nextStep(props.title);
   };
