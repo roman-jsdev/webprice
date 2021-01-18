@@ -6,7 +6,6 @@ export const QUIZ_STEP_5 = () => {
 
   useEffect(() => {
     list.set([]);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

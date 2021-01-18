@@ -9,7 +9,6 @@ export const Logout = () => {
 
   useEffect(() => {
     dispatch(logout());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <Redirect to={"/"} />;

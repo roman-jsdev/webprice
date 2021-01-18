@@ -1,4 +1,3 @@
-// import { useRef, useState } from "react";
 import { cardText } from "./cards";
 import { QUIZ_STEP_1_ITEM } from "./QUIZ_STEP_1_ITEM";
 

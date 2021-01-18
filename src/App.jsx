@@ -19,7 +19,6 @@ function App() {
 
   useEffect(() => {
     dispatch(autoLogin());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   let routes = (
