@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState } from "react";
-import { storage } from "../../../utils";
+import { storage } from "../../utils";
 import { usePrice } from "./PriceContext";
 import { calcPrice, priceList } from "./priceList";
 

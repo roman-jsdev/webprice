@@ -9,10 +9,7 @@ export const Navbar = () => {
 
   const isAuthenticated = !!state.token;
 
-  const links = [
-    { to: "/", title: "Home", exact: true },
-    { to: "/calculator", title: "Calculator", exact: false },
-  ];
+  const links = [{ to: "/", title: "Home", exact: true }];
 
   if (isAuthenticated) {
     links.push({ to: "/orders", title: "Orders", exact: false });

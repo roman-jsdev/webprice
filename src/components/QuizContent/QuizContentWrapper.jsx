@@ -1,4 +1,4 @@
-import classes from "../QuizContainer.module.css";
+import classes from "../../containers/Quiz/QuizContainer.module.css";
 
 export const QuizContentWrapper = (props) => {
   return (

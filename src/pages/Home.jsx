@@ -1,4 +1,4 @@
-import { Quiz } from "../containers/Quiz/Quiz";
+import { Quiz } from "../components/Quiz";
 
 export const Home = () => {
   return (

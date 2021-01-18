@@ -3,7 +3,7 @@ import { CartBody } from "./Cart/CartBody";
 import { CartButton } from "./Cart/CartButton";
 import { CartHeader } from "./Cart/CartHeader";
 import { PriceProvider } from "./Cart/PriceContext";
-import { QuizContainer } from "./QuizContainer";
+import { QuizContainer } from "../containers/Quiz/QuizContainer";
 import { QuizContentWrapper } from "./QuizContent/QuizContentWrapper";
 import { QuizHeader } from "./QuizHeader/QuizHeader";
 import { QuizProgress } from "./QuizProgress";
