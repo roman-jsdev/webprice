@@ -6,6 +6,8 @@ import { useCartList } from "../Cart/CartListContext";
 import { useProgress } from "../ProgressContext";
 import axios from "axios";
 import { usePrice } from "../Cart/PriceContext";
+import { fieldsData } from "./fieldsData";
+import { ContactField } from "./ContactField";
 
 export const OrderForm = () => {
   const cart = useCartList();
@@ -58,12 +60,12 @@ export const OrderForm = () => {
         const id = Date.now().toString();
         try {
           await axios.put(
-            `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`,
+            `https://webprice-app-default-rtdb.firebaseio.com/orders/order-${id}.json?auth=${process.env.REACT_APP_AXLOG}`,
             JSON.stringify(values, null, 2)
           );
           progress.setNewProgress(25);
         } catch (e) {
-          alert('Some Problems With Data Fetching')
+          alert("Some Problems With Data Fetching");
           console.log(e);
         }
       }}
@@ -71,54 +73,11 @@ export const OrderForm = () => {
       {({ submitForm, isSubmitting }) => (
         <Form>
           <Grid container spacing={1}>
-            <Grid container item xs={12}>
-              <Field
-                component={TextField}
-                type="text"
-                label="Client Name*"
-                name="name"
-              />
-            </Grid>
-            <Grid container item xs={12}>
-              <Field
-                component={TextField}
-                type="text"
-                label="Company Name*"
-                name="company"
-              />
-            </Grid>
-            <Grid container item xs={12}>
-              <Field
-                component={TextField}
-                type="url"
-                label="Company URL"
-                name="url"
-              />
-            </Grid>
-            <Grid container item xs={12}>
-              <Field
-                component={TextField}
-                type="text"
-                label="Company Full Address*"
-                name="address"
-              />
-            </Grid>
-            <Grid container item xs={12}>
-              <Field
-                component={TextField}
-                name="email"
-                type="email"
-                label="Email*"
-              />
-            </Grid>
-            <Grid container item xs={12}>
-              <Field
-                component={TextField}
-                type="phone"
-                label="Business Phone*"
-                name="phone"
-              />
-            </Grid>
+            {fieldsData.map((e, i) => {
+              return (
+                <ContactField key={i} type={e[0]} label={e[1]} name={e[2]} />
+              );
+            })}
             <Field component={TextField} type="text" name="cart" hidden />
             <Grid container item xs={12} style={{ marginTop: 20 }}>
               <Button

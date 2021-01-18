@@ -2,7 +2,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import { useState } from "react";
-import { storage } from "../../../utils";
+import { storage } from "../../utils";
 import { useCartList } from "../Cart/CartListContext";
 
 export default function SwitchesGroup(props) {

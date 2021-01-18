@@ -20,7 +20,7 @@ export const LoginForm = () => {
       if (mounted && submit) {
         try {
           const response = await axios.post(
-            "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB02CfvM67prVEVqLHclh4Jg6586VL4HUs",
+            `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_AXAU}`,
             authDataRef.current
           );
 

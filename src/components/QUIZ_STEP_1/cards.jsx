@@ -1,7 +1,4 @@
-// import { useRef, useState } from "react";
-import { QUIZ_STEP_1_ITEM } from "./QUIZ_STEP_1_ITEM";
-
-const cardText = {
+export const cardText = {
   "Website Single Page": {
     price: 1200,
     desc: [
@@ -9,7 +6,7 @@ const cardText = {
       "Great for small product launches",
       "Often used for lead generation campaigns",
     ],
-    imgSrc: "./type-1.jpg",
+    imgSrc: `${process.env.PUBLIC_URL}/type-1.jpg`,
   },
   "Website CMS": {
     price: 2500,
@@ -18,7 +15,7 @@ const cardText = {
       "Over 100million Site Owners Use Wordpress",
       "Excellent for Content Publishing & SEO Work",
     ],
-    imgSrc: "./type-2.jpg",
+    imgSrc: `${process.env.PUBLIC_URL}/type-2.jpg`,
   },
   "Website E-Commerce": {
     price: 3500,
@@ -27,25 +24,6 @@ const cardText = {
       "Secure Payment Platforms",
       "Refined Product Management Systems",
     ],
-    imgSrc: "./type-3.jpg",
+    imgSrc: `${process.env.PUBLIC_URL}/type-3.jpg`,
   },
-};
-
-export const QUIZ_STEP_1 = () => {
-  return (
-    <>
-      {Object.keys(cardText).map((item, id) => {
-        return (
-          <QUIZ_STEP_1_ITEM
-            key={id}
-            title={item}
-            desc={cardText[item].desc}
-            id={id}
-            price={cardText[item].price}
-            imgSrc={cardText[item].imgSrc}
-          />
-        );
-      })}
-    </>
-  );
 };

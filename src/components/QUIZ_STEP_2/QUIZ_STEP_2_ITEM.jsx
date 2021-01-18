@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { storage } from "../../../utils";
+import { storage } from "../../utils";
 import { useCartList } from "../Cart/CartListContext";
 
 const selectedStyle = {

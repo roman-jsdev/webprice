@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import { useCartList } from "../Cart/CartListContext";
-import { storage } from "../../../utils";
+import { storage } from "../../utils";
 import Input from "@material-ui/core/Input";
 import Grid from "@material-ui/core/Grid";
 
@@ -13,17 +13,20 @@ const useStyles = makeStyles({
   },
 });
 
-function valuetext(value) {
-  return `${value}°C`;
-}
-
 export default function DiscreteSlider(props) {
   const cartList = useCartList();
   const classes = useStyles();
-  const [value, setValue] = React.useState(storage(`slider-${props.type}`) || 0);
+  const [value, setValue] = React.useState(
+    storage(`slider-${props.type}`) || 0
+  );
   const result = useRef();
-  const inputRef = useRef(0)
+  const inputRef = useRef(0);
   const inputRefSelect = useRef();
+
+  useEffect(() => {
+    result.current = value;
+    storage(`slider-${props.type}`, result.current);
+  });
 
   const array = Array(11)
     .fill(props.step)
@@ -78,11 +81,6 @@ export default function DiscreteSlider(props) {
     },
   ];
 
-  useEffect(() => {
-    result.current = value;
-    storage(`slider-${props.type}`, result.current);
-  });
-
   const handleSliderChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -93,7 +91,8 @@ export default function DiscreteSlider(props) {
 
   const handleInputChange = (event) => {
     setValue(event.target.value === "" ? "" : Number(event.target.value));
-    inputRef.current = event.target.value === "" ? "" : Number(event.target.value)
+    inputRef.current =
+      event.target.value === "" ? "" : Number(event.target.value);
     cartList.nextStep(`${props.title} ${inputRef.current}`);
   };
 
@@ -114,7 +113,6 @@ export default function DiscreteSlider(props) {
             onChange={handleSliderChange}
             onChangeCommitted={() => handleChangeCommitted()}
             value={typeof value === "number" ? value : 0}
-            getAriaValueText={valuetext}
             aria-labelledby="input-slider"
             step={props.step}
             marks={marks}

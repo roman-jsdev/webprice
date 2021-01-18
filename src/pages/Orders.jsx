@@ -13,7 +13,7 @@ export const Orders = () => {
     const getOrders = async () => {
       try {
         const res = await axios.get(
-          "https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders.json"
+          `https://webprice-app-default-rtdb.firebaseio.com/orders.json?auth=${process.env.REACT_APP_AXLOG}`
         );
         if (res.data !== null && mounted) {
           orderIdRef.current = Object.keys(res.data).map((e) =>
@@ -48,7 +48,7 @@ export const Orders = () => {
     const deleteRecord = async (id) => {
       try {
         await axios.delete(
-          `https://websit-calculator-react-app-default-rtdb.firebaseio.com/orders/order-${id}.json`
+          `https://webprice-app-default-rtdb.firebaseio.com/orders/order-${id}.json?auth=${process.env.REACT_APP_AXLOG}`
         );
         orderIdRef.current = orderIdRef.current.filter((e) => e !== id);
         setState((prev) => prev + 1);
