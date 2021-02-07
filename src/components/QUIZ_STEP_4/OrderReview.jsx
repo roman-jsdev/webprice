@@ -1,11 +1,12 @@
+import { priceList } from "../../constants";
+import { calculatePrice } from "../../utils";
 import { useCartList } from "../Cart/CartListContext";
-import { calcPrice, priceList } from "../Cart/priceList";
 
 export const OrderReview = () => {
   const list = useCartList();
   const arr = [];
 
-  const calculatePrice = (e) => {
+  const calculateFinalPrice = (e) => {
     const resultArr = [];
     const str = e.split(/[\s,]+/);
     const obj = {
@@ -16,7 +17,7 @@ export const OrderReview = () => {
     arr.forEach((el) => {
       Object.keys(el).forEach((i) => {
         if (!isNaN(Number(el[i]))) {
-          const fromList = calcPrice(priceList, i, Number(el[i]));
+          const fromList = calculatePrice(priceList, i, Number(el[i]));
           resultArr.push(fromList);
         }
       });
@@ -42,7 +43,7 @@ export const OrderReview = () => {
             <div className="col-md-3 col-4 offset-md-1 mobile-review_price">
               {Object.keys(priceList).indexOf(e) !== -1
                 ? priceList[e]
-                : calculatePrice(e)}
+                : calculateFinalPrice(e)}
             </div>
           </div>
         );

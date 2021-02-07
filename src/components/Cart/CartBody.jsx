@@ -1,20 +1,17 @@
 import { useCartList } from "./CartListContext";
 
 export const CartBody = () => {
-  const cartList = useCartList();
+  const { currentList } = useCartList();
 
   return (
     <ul className="list-group pt-4">
-      {cartList.currentList.length
-        ? cartList.currentList.map((item, index) => {
-            return (
-              <li key={index} className="list-group-item" aria-current="true">
-                <i className="fas fa-check me-3"></i>
-
-                {item}
-              </li>
-            );
-          })
+      {currentList.length
+        ? currentList.map((item, index) => (
+            <li key={index} className="list-group-item" aria-current="true">
+              <i className="fas fa-check me-3" />
+              {item}
+            </li>
+          ))
         : null}
     </ul>
   );

@@ -1,13 +1,3 @@
-export const calcPrice = (list, item, amount) => {
-  let counter = 0;
-  Object.keys(list).forEach((e) => {
-    if (e === item) {
-      counter = list[item] * amount;
-    }
-  });
-  return counter;
-};
-
 export const priceList = {
   "Website Single Page": 1200,
   "Website CMS": 2500,
