@@ -38,15 +38,19 @@ export const CartListProvider = ({ children }) => {
       nextStepCartListFilter(prevCartList, newItem)
     );
 
-  const clearAll = () => setCartList([]);
+  const clearCartList = () => {
+    currentCartList.current = [];
+    filteredList.current = [];
+    setCartList([]);
+  };
 
   return (
     <CartListContext.Provider
       value={{
         list: cartList,
-        set: setCartList,
+        setCartList,
         nextStep,
-        clearAll,
+        clearCartList,
         currentList: filteredList.current,
       }}
     >

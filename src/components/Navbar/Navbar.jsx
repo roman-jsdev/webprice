@@ -1,13 +1,13 @@
 import { NavigationLink } from "@components/NavigationLink";
 import { useStore } from "@store/store";
 import classes from "./Navbar.module.css";
+
 import { NavLink } from "react-router-dom";
 
 export const Navbar = () => {
-  const globalState = useStore();
-  const { state } = globalState;
-
-  const isAuthenticated = !!state.token;
+  const {
+    state: { token: isAuthenticated },
+  } = useStore();
 
   const links = [{ to: "/", title: "Home", exact: true }];
 
@@ -27,8 +27,13 @@ export const Navbar = () => {
           WEBPRICE
         </NavLink>
         <ul className="navbar-nav me-auto mb-0 mb-lg-0 flex-row">
-          {links.map((e, i) => (
-            <NavigationLink key={i} to={e.to} title={e.title} exact={e.exact} />
+          {links.map(({to, title, exact}, index) => (
+            <NavigationLink
+              key={index}
+              to={to}
+              title={title}
+              exact={exact}
+            />
           ))}
         </ul>
       </div>

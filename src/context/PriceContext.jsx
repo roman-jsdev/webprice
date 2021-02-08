@@ -9,14 +9,14 @@ export const usePrice = () => {
 export const PriceProvider = ({ children }) => {
   const [price, setPrice] = useState(0);
   const setNewPrice = setPrice;
-  const clear = () => setPrice(0);
+  const clearPrice = () => setPrice(0);
 
   return (
     <PriceContext.Provider
       value={{
         current: price,
         setNewPrice,
-        clear,
+        clearPrice,
       }}
     >
       {children}

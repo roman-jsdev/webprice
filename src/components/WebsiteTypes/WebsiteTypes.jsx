@@ -1,21 +1,18 @@
 import { useRef } from "react";
-import { storage } from "@src/utils";
+import { storage, toggleStorage } from "@src/utils";
 import { useCartList } from "@context/CartListContext";
-import classes from "./WebsiteTypes.module.css";
+import { Label, List } from "./WebsiteTypes.module.css";
 
-export const WebsiteTypes = (props) => {
-  const cartList = useCartList();
-
+export const WebsiteTypes = ({ title, id, price, description, imgSource }) => {
+  const { nextStep } = useCartList();
   const radioRef = useRef();
   const titleRef = useRef();
 
-  const clickHandler = (e) => {
-    e.preventDefault();
-    cartList.nextStep(props.title);
+  const chooseWebsiteType = (event) => {
+    event.preventDefault();
+    nextStep(title);
     radioRef.current.checked = !radioRef.current.checked;
-    storage("website") === radioRef.current.id
-      ? sessionStorage.removeItem("website")
-      : storage("website", radioRef.current.id);
+    toggleStorage("website", radioRef.current.id);
   };
 
   return (
@@ -25,47 +22,41 @@ export const WebsiteTypes = (props) => {
       <div>
         <div
           className="form-check justify-content-center d-flex p-0"
-          onClick={(e) => clickHandler(e)}
+          onClick={chooseWebsiteType}
         >
           <input
             ref={radioRef}
             readOnly
             className="form-check-input me-3"
-            checked={
-              `flexRadioDefault1${props.id}` === storage("website")
-                ? true
-                : false
-            }
+            checked={`flexRadioDefault1${id}` === storage("website")}
             type="radio"
             name="flexRadioDefault"
-            id={`flexRadioDefault1${props.id}`}
+            id={`flexRadioDefault1${id}`}
             style={{ pointerEvents: "none" }}
           />
           <label
             ref={titleRef}
-            className={`form-check-label fw-bold ${classes.Label}`}
-            htmlFor={`flexRadioDefault1${props.id}`}
+            className={`form-check-label fw-bold ${Label}`}
+            htmlFor={`flexRadioDefault1${id}`}
           >
-            {props.title}
+            {title}
           </label>
         </div>
-        <p className="m-2 text-center fw-bold mb-0">${props.price}</p>
+        <p className="m-2 text-center fw-bold mb-0">&#36;{price}</p>
         <ul className="pt-3 p-0 d-flex flex-column">
-          {props.desc.map((desc, id) => {
-            return (
-              <li
-                key={id}
-                className={`list-group-item list-group-item-light d-flex align-items-center ${classes.List}`}
-              >
-                <i className="fas fa-check me-3"></i>
-                <p className="m-0 text-start">{desc}</p>
-              </li>
-            );
-          })}
+          {description.map((descriptionText, index) => (
+            <li
+              key={index}
+              className={`list-group-item list-group-item-light d-flex align-items-center ${List}`}
+            >
+              <i className="fas fa-check me-3"></i>
+              <p className="m-0 text-start">{descriptionText}</p>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="d-flex justify-content-center">
-        <img src={props.imgSrc} className="img-fluid" alt="text" />
+        <img src={imgSource} className="img-fluid" alt="text" />
       </div>
     </div>
   );

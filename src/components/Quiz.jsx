@@ -16,10 +16,10 @@ import { FourthQuizStep } from "@steps/FourthQuizStep";
 import { FifthQuizStep } from "@steps/FifthQuizStep";
 
 export const Quiz = () => {
-  const progress = useProgress();
+  const { progress } = useProgress();
 
-  const renderContent = () => {
-    switch (progress.progress) {
+  const getContent = () => {
+    switch (progress) {
       case 0:
         return <FirstQuizStep />;
       case 25:
@@ -41,12 +41,12 @@ export const Quiz = () => {
         <QuizContainer>
           <QuizHeader />
           <QuizProgress />
-          <QuizContentWrapper>{renderContent()}</QuizContentWrapper>
+          <QuizContentWrapper>{getContent()}</QuizContentWrapper>
         </QuizContainer>
         <Cart>
           <CartHeader />
           <CartBody />
-          {progress.progress === 100 ? (
+          {progress === 100 ? (
             <CartButton title="Checkout" type="checkout" />
           ) : (
             <>

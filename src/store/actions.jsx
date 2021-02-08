@@ -1,22 +1,23 @@
+import { AUTH_LOGOUT, AUTH_SUCCESS } from "./types";
+
 export const authSuccess = (token) => {
   return {
-    type: "AUTH_SUCCESS",
-    token,
+    type: AUTH_SUCCESS,
+    payload: token,
   };
 };
 
-export const autoLogout = (time) => {
-  return setTimeout(() => {
+export const autoLogout = (time) =>
+  setTimeout(() => {
     logout();
   }, time * 1000);
-};
 
 export const logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("userId");
   localStorage.removeItem("expirationDate");
   return {
-    type: "AUTH_LOGOUT",
+    type: AUTH_LOGOUT,
   };
 };
 

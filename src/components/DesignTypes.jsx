@@ -1,35 +1,30 @@
-import { useRef } from "react";
-import { storage } from "@src/utils";
+import { storage, toggleStorage } from "@src/utils";
 import { selectedDesignStyle } from "@src/constants";
 import { useCartList } from "@context/CartListContext";
 
-export const DesignTypes = (props) => {
-  const cartList = useCartList();
-  const selectedImg = useRef();
+export const DesignTypes = ({ title, price, description, imgSource }) => {
+  const { nextStep } = useCartList();
 
-  const clickHandler = () => {
-    cartList.nextStep(props.title);
-    storage("design") === props.title
-      ? sessionStorage.removeItem("design")
-      : storage("design", props.title);
+  const chooseDesign = () => {
+    nextStep(title);
+    toggleStorage("design", title);
   };
 
   return (
     <div className="col-md-6 column-ease-in">
-      <p className="m-0 text-center fs-4 fw-bold mb-2">{props.title}</p>
-      <p className="m-2 text-center fw-bold mb-2">${props.price}</p>
-      <p className="m-0 text-center mb-4">{props.desc}</p>
+      <p className="m-0 text-center fs-4 fw-bold mb-2">{title}</p>
+      <p className="m-2 text-center fw-bold mb-2">&#36;{price}</p>
+      <p className="m-0 text-center mb-4">{description}</p>
       <div
         className="d-flex justify-content-center"
         style={{ cursor: "pointer" }}
-        onClick={() => clickHandler()}
+        onClick={chooseDesign}
       >
         <img
-          ref={selectedImg}
-          style={storage("design") === props.title ? selectedDesignStyle : null}
-          src={props.imgSrc}
+          style={storage("design") === title ? selectedDesignStyle : null}
+          src={imgSource}
           className="img-fluid img-hover"
-          alt="text"
+          alt={title}
         />
       </div>
     </div>

@@ -7,20 +7,19 @@ export const useProgress = () => useContext(ProgressContext);
 export const ProgressProvider = ({ children }) => {
   const [progress, setProgress] = useState(0);
 
-  const setCurrentProgress = (val) => setProgress(val);
+  const setCurrentProgress = setProgress;
 
-  const setNewProgress = (newProgress) => {
+  const setNewProgress = (newProgress) =>
     setProgress((prev) => prev + newProgress);
-  };
 
-  const clear = () => setProgress(0);
+  const clearProgress = () => setProgress(0);
 
   return (
     <ProgressContext.Provider
       value={{
         progress,
         setNewProgress,
-        clear,
+        clearProgress,
         setCurrentProgress,
       }}
     >

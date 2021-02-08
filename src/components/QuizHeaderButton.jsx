@@ -1,48 +1,24 @@
 import { useProgress } from "@context/ProgressContext";
 import classes from "@components/QuizHeader/Header.module.css";
 
-export const QuizHeaderButton = (props) => {
-  const currentProgress = useProgress();
+export const QuizHeaderButton = ({ right, type, title }) => {
+  const { progress, setNewProgress } = useProgress();
 
-  const clickHandler = () => {
-    props.right
-      ? currentProgress.setNewProgress(25)
-      : currentProgress.setNewProgress(-25);
-  };
+  const changeProgress = () =>
+    right ? setNewProgress(25) : setNewProgress(-25);
 
-  const disableNext = () => {
-    switch (currentProgress.progress) {
-      case 0:
-        return false;
-      case 75:
-        return true;
-      case 100:
-        return true;
-      default:
-        break;
-    }
-  };
-
-  const disableBack = () => {
-    switch (currentProgress.progress) {
-      case 0:
-        return true;
-      case 100:
-        return true;
-      default:
-        break;
-    }
-  };
+  const disableNext = () => (progress === 75 || progress === 100) && true;
+  const disableBack = () => (progress === 0 || progress === 100) && true;
 
   return (
-    <div className={`col-3 ${props.right ? "text-end" : "text-start"}`}>
+    <div className={`col-3 ${right ? "text-end" : "text-start"}`}>
       <button
-        disabled={props.type === "next" ? disableNext() : disableBack()}
+        disabled={type === "next" ? disableNext() : disableBack()}
         className={`btn ${classes.Btn}`}
-        onClick={() => clickHandler()}
-        data-type={props.type}
+        onClick={changeProgress}
+        data-type={type}
       >
-        {props.title}
+        {title}
       </button>
     </div>
   );

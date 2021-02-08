@@ -3,7 +3,7 @@ import { OrderForm } from "@components/OrderForm";
 import { OrderReview } from "@components/OrderReview";
 
 export const FourthQuizStep = () => {
-  const price = usePrice();
+  const { current } = usePrice();
 
   return (
     <>
@@ -21,7 +21,7 @@ export const FourthQuizStep = () => {
         </div>
         <div className="row mt-1">
           <div className="col-md-3 offset-md-9 mobile-review_total">
-            ${price.current}
+            &#36;{current}
           </div>
         </div>
       </div>

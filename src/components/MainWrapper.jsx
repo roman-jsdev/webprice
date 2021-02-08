@@ -1,7 +1,5 @@
-export const MainWrapper = (props) => {
-  return (
-    <main>
-      <div className="container pt-4">{props.children}</div>
-    </main>
-  );
-};
+export const MainWrapper = ({ children }) => (
+  <main>
+    <div className="container pt-4">{children}</div>
+  </main>
+);

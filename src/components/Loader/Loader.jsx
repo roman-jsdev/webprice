@@ -1,9 +1,7 @@
-import classes from "./Loader.module.css";
+import { center, LoaderSpinner } from "./Loader.module.css";
 
-export const Loader = () => {
-  return (
-    <div className={classes.center}>
-      <div className={classes.Loader}></div>
-    </div>
-  );
-};
+export const Loader = () => (
+  <div className={center}>
+    <div className={LoaderSpinner}></div>
+  </div>
+);

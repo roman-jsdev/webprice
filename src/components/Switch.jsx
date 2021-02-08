@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { storage } from "@src/utils";
+import { storage, toggleStorage } from "@src/utils";
 import { useCartList } from "@context/CartListContext";
+
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 
-export default function SwitchesGroup(props) {
-  const [state, setState] = useState(!!storage(`button-${props.title}`));
-  const cartList = useCartList();
+export default function SwitchesGroup({ title, type, price, unit }) {
+  const [state, setState] = useState(!!storage(`button-${title}`));
+  const { nextStep } = useCartList();
 
-  const handleChange = () => {
+  const toggleSwitch = () => {
     setState(!state);
-    storage(`button-${props.title}`) === true
-      ? sessionStorage.removeItem(`button-${props.title}`)
-      : storage(`button-${props.title}`, true);
-    cartList.nextStep(props.title);
+    toggleStorage(`button-${title}`, true);
+    nextStep(title);
   };
 
   return (
@@ -23,12 +22,12 @@ export default function SwitchesGroup(props) {
         control={
           <Switch
             checked={state}
-            onChange={handleChange}
-            name={props.type}
+            onChange={toggleSwitch}
+            name={type}
             color="primary"
           />
         }
-        label={props.title + ` ($${props.price}/${props.unit})`}
+        label={`${title} ($${price}/${unit})`}
       />
     </FormGroup>
   );

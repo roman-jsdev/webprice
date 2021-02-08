@@ -1,9 +1,9 @@
-.Loader {
+.LoaderSpinner {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
-.Loader:after {
+.LoaderSpinner:after {
   content: " ";
   display: block;
   width: 64px;

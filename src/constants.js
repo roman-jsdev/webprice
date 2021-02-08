@@ -114,48 +114,55 @@ export const fieldsData = [
 export const designCards = {
   "Design Simple": {
     price: 350,
-    desc:
+    description:
       "Beautiful typography, strategic use of colors and graphics, and obstruction-free aesthetics.",
-    imgSrc: `${process.env.PUBLIC_URL}/design-1.png`,
+    imgSource: `${process.env.PUBLIC_URL}/design-1.png`,
   },
   "Design Awesome": {
     price: 650,
-    desc:
+    description:
       "Effective and evolving design, keeping up with design trends, and best creativity.",
-    imgSrc: `${process.env.PUBLIC_URL}/design-2.png`,
+    imgSource: `${process.env.PUBLIC_URL}/design-2.png`,
   },
 };
 
 export const websiteTypeCards = {
   "Website Single Page": {
     price: 1200,
-    desc: [
+    description: [
       "Excellent for paid ad campaigns (Google Ads, Facebook)",
       "Great for small product launches",
       "Often used for lead generation campaigns",
     ],
-    imgSrc: `${process.env.PUBLIC_URL}/type-1.jpg`,
+    imgSource: `${process.env.PUBLIC_URL}/type-1.jpg`,
   },
   "Website CMS": {
     price: 2500,
-    desc: [
+    description: [
       "Go-to Platform for Service Businesses",
       "Over 100million Site Owners Use Wordpress",
       "Excellent for Content Publishing & SEO Work",
     ],
-    imgSrc: `${process.env.PUBLIC_URL}/type-2.jpg`,
+    imgSource: `${process.env.PUBLIC_URL}/type-2.jpg`,
   },
   "Website E-Commerce": {
     price: 3500,
-    desc: [
+    description: [
       "Excellent for Content Publishing & SEO Work",
       "Secure Payment Platforms",
       "Refined Product Management Systems",
     ],
-    imgSrc: `${process.env.PUBLIC_URL}/type-3.jpg`,
+    imgSource: `${process.env.PUBLIC_URL}/type-3.jpg`,
   },
 };
 
 export const selectedDesignStyle = {
-  boxShadow: "0 0px 2px 2px #bfbfbf",
+  boxShadow: "rgb(119 119 119) 0px 0px 5px 5px",
 };
+
+export const quizHeaderTitles = ["Website Type", "Choose Design", "Choose Services", "Checkout", ""]
+
+export const loginFormFields = [
+  { name: "email", type: "email", label: "Email" },
+  { name: "password", type: "password", label: "Password" },
+]

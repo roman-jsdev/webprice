@@ -2,11 +2,9 @@ import { useEffect } from "react";
 import { useCartList } from "@context/CartListContext";
 
 export const FifthQuizStep = () => {
-  const list = useCartList();
-
-  useEffect(() => {
-    list.set([]);
-  }, []);
+  const { setCartList } = useCartList();
+  
+  useEffect(() => setCartList([]), []);
 
   return (
     <div className="row column-ease-in not-p-mob">

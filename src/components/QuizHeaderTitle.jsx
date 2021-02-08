@@ -1,29 +1,8 @@
 import { useProgress } from "@context/ProgressContext";
+import { getQuizHeaderTitle } from "@src/utils";
 
-export const QuizHeaderTitle = (props) => {
+export const QuizHeaderTitle = () => {
   const { progress } = useProgress();
-
-  let title = "";
-
-  switch (progress) {
-    case 0:
-      title = "Website Type";
-      break;
-    case 25:
-      title = "Choose Design";
-      break;
-    case 50:
-      title = "Choose Services";
-      break;
-    case 75:
-      title = "Checkout";
-      break;
-    case 100:
-      title = "";
-      break;
-    default:
-      break;
-  }
 
   return (
     <div className="col-6">
@@ -31,7 +10,7 @@ export const QuizHeaderTitle = (props) => {
         className="text-center fs-3 m-0"
         style={{ color: "white", userSelect: "none" }}
       >
-        {title}
+        {getQuizHeaderTitle(progress)}
       </p>
     </div>
   );
