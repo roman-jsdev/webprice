@@ -1,9 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App.jsx';
-import reportWebVitals from './reportWebVitals';
-import { StateProvider } from './store/store';
+import React from "react";
+import ReactDOM from "react-dom";
+import "@src/index.css";
+import { App } from "@src/App.jsx";
+import { StateProvider } from "@store/store";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,7 +10,5 @@ ReactDOM.render(
       <App />
     </StateProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-reportWebVitals();

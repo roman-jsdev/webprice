@@ -1,13 +1,13 @@
-import { NavigationLink } from "./NavigationLink";
-import { NavBrand } from "./NavBrand";
-import { useStore } from "../../store/store";
+import { NavigationLink } from "@components/NavigationLink";
+import { useStore } from "@store/store";
 import classes from "./Navbar.module.css";
 
-export const Navbar = () => {
-  const globalState = useStore();
-  const { state } = globalState;
+import { NavLink } from "react-router-dom";
 
-  const isAuthenticated = !!state.token;
+export const Navbar = () => {
+  const {
+    state: { token: isAuthenticated },
+  } = useStore();
 
   const links = [{ to: "/", title: "Home", exact: true }];
 
@@ -23,10 +23,17 @@ export const Navbar = () => {
       className={`navbar navbar-expand-lg navbar-dark bg-warning main-color ${classes.Navbar}`}
     >
       <div className="container-fluid">
-        <NavBrand />
+        <NavLink className="navbar-brand" to="/">
+          WEBPRICE
+        </NavLink>
         <ul className="navbar-nav me-auto mb-0 mb-lg-0 flex-row">
-          {links.map((e, i) => (
-            <NavigationLink key={i} to={e.to} title={e.title} exact={e.exact} />
+          {links.map(({to, title, exact}, index) => (
+            <NavigationLink
+              key={index}
+              to={to}
+              title={title}
+              exact={exact}
+            />
           ))}
         </ul>
       </div>

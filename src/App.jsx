@@ -1,53 +1,55 @@
 import { useEffect } from "react";
+import { Logout } from "@components/Logout";
+import { MainWrapper } from "@components/MainWrapper";
+import { Navbar } from "@components/Navbar/Navbar";
+import { ProgressProvider } from "@context/ProgressContext";
+import { Home } from "@pages/Home";
+import { Login } from "@pages/Login";
+import { Orders } from "@pages/Orders";
+import { autoLogin } from "@store/actions";
+import { useStore } from "@store/store";
+
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { Logout } from "./components/Logout";
-import { Navbar } from "./components/Navbar/Navbar";
-import { MainWrapper } from "./containers/Layout/MainWrapper";
-import { ProgressProvider } from "./components/ProgressContext";
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { Orders } from "./pages/Orders";
-import { autoLogin } from "./store/actions";
-import { useStore } from "./store/store";
 
-function App() {
-  const globalState = useStore();
-  const { state, dispatch } = globalState;
+export const App = () => {
+  const {
+    state: { token: isAuthenticated },
+    dispatch,
+  } = useStore();
 
-  const isAuthenticated = !!state.token;
   sessionStorage.clear();
 
   useEffect(() => {
     dispatch(autoLogin());
   }, []);
 
-  let routes = (
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/login" component={Login} />
-      <Redirect to="/" exact />
-    </Switch>
-  );
+  const routes = [{path: '/', exact: true, component: Home}]
 
-  if (isAuthenticated) {
-    routes = (
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/orders" component={Orders} />
-        <Route path="/logout" component={Logout} />
-        <Redirect to="/" />
-      </Switch>
-    );
+  if(isAuthenticated){
+    routes.push({path: '/orders', exact: false, component: Orders})
+    routes.push({path: '/logout', exact: false, component: Logout})
+  } else {
+    routes.push({path: '/login', exact: false, component: Login})
   }
 
   return (
     <BrowserRouter>
       <Navbar />
       <ProgressProvider>
-        <MainWrapper>{routes}</MainWrapper>
+        <MainWrapper>
+          <Switch>
+            {routes.map(({ path, exact, component }, index) => (
+              <Route
+                key={index}
+                path={path}
+                exact={exact}
+                component={component}
+              />
+            ))}
+            <Redirect to="/" />
+          </Switch>
+        </MainWrapper>
       </ProgressProvider>
     </BrowserRouter>
   );
-}
-
-export default App;
+};

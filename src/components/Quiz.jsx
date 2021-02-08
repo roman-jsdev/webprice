@@ -1,37 +1,37 @@
-import { Cart } from "./Cart/Cart";
-import { CartBody } from "./Cart/CartBody";
-import { CartButton } from "./Cart/CartButton";
-import { CartHeader } from "./Cart/CartHeader";
-import { PriceProvider } from "./Cart/PriceContext";
-import { QuizContainer } from "../containers/Quiz/QuizContainer";
-import { QuizContentWrapper } from "./QuizContent/QuizContentWrapper";
-import { QuizHeader } from "./QuizHeader/QuizHeader";
-import { QuizProgress } from "./QuizProgress";
-import { QUIZ_STEP_1 } from "./QUIZ_STEP_1/QUIZ_STEP_1";
-import { useProgress } from "./ProgressContext";
-import { CartListProvider } from "./Cart/CartListContext";
-import { QUIZ_STEP_2 } from "./QUIZ_STEP_2/QUIZ_STEP_2";
-import { QUIZ_STEP_3 } from "./QUIZ_STEP_3/QUIZ_STEP_3";
-import { QUIZ_STEP_4 } from "./QUIZ_STEP_4/QUIZ_STEP_4";
-import { QUIZ_STEP_5 } from "./QUIZ_STEP_5/QUIZ_STEP_5";
+import { Cart } from "@components/Cart/Cart";
+import { CartBody } from "@components/CartBody";
+import { CartButton } from "@components/CartButton";
+import { CartHeader } from "@components/CartHeader";
+import { PriceProvider } from "@context/PriceContext";
+import { QuizContentWrapper } from "@components/QuizContentWrapper";
+import { QuizContainer } from "@components/QuizContainer/QuizContainer";
+import { QuizHeader } from "@components/QuizHeader/QuizHeader";
+import { QuizProgress } from "@components/QuizProgress";
+import { useProgress } from "@context/ProgressContext";
+import { CartListProvider } from "@context/CartListContext";
+import { FirstQuizStep } from "@steps/FirstQuizStep";
+import { SecondQuizStep } from "@steps/SecondQuizStep";
+import { ThirdQuizStep } from "@steps/ThirdQuizStep";
+import { FourthQuizStep } from "@steps/FourthQuizStep";
+import { FifthQuizStep } from "@steps/FifthQuizStep";
 
 export const Quiz = () => {
-  const progress = useProgress();
+  const { progress } = useProgress();
 
-  const renderContent = () => {
-    switch (progress.progress) {
+  const getContent = () => {
+    switch (progress) {
       case 0:
-        return <QUIZ_STEP_1 />;
+        return <FirstQuizStep />;
       case 25:
-        return <QUIZ_STEP_2 />;
+        return <SecondQuizStep />;
       case 50:
-        return <QUIZ_STEP_3 />;
+        return <ThirdQuizStep />;
       case 75:
-        return <QUIZ_STEP_4 />;
+        return <FourthQuizStep />;
       case 100:
-        return <QUIZ_STEP_5 />;
+        return <FifthQuizStep />;
       default:
-        return <QUIZ_STEP_1 />;
+        return <FirstQuizStep />;
     }
   };
 
@@ -41,12 +41,12 @@ export const Quiz = () => {
         <QuizContainer>
           <QuizHeader />
           <QuizProgress />
-          <QuizContentWrapper>{renderContent()}</QuizContentWrapper>
+          <QuizContentWrapper>{getContent()}</QuizContentWrapper>
         </QuizContainer>
         <Cart>
           <CartHeader />
           <CartBody />
-          {progress.progress === 100 ? (
+          {progress === 100 ? (
             <CartButton title="Checkout" type="checkout" />
           ) : (
             <>

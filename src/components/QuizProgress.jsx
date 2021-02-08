@@ -1,8 +1,8 @@
-import { useProgress } from "./ProgressContext";
-import classes from "../containers/Quiz/QuizContainer.module.css";
+import { useProgress } from "@context/ProgressContext";
+import classes from "@components/QuizContainer/QuizContainer.module.css";
 
-export const QuizProgress = ({ progress }) => {
-  const currentProgress = useProgress();
+export const QuizProgress = () => {
+  const { progress } = useProgress();
 
   return (
     <div className={`row ${classes.FullWidth}`}>
@@ -10,12 +10,12 @@ export const QuizProgress = ({ progress }) => {
         <div
           className="progress-bar"
           role="progressbar"
-          style={{ width: currentProgress.progress + "%" }}
+          style={{ width: progress + "%" }}
           aria-valuenow={progress}
           aria-valuemin="0"
           aria-valuemax="100"
         >
-          {currentProgress.progress + `%`}
+          {progress + `%`}
         </div>
       </div>
     </div>

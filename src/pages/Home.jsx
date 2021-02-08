@@ -1,10 +1,7 @@
-import { Quiz } from "../components/Quiz";
+import { Quiz } from "@components/Quiz";
 
-export const Home = () => {
-  return (
-    <div className="row">
-      <Quiz />
-    </div>
-  );
-};
- 
+export const Home = () => (
+  <div className="row">
+    <Quiz />
+  </div>
+);

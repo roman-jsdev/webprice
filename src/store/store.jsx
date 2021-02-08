@@ -1,4 +1,5 @@
 import { createContext, useContext, useReducer } from "react";
+import { AUTH_LOGOUT, AUTH_SUCCESS } from "./types";
 
 const initialState = {
   token: null,
@@ -7,19 +8,21 @@ const initialState = {
 const StoreContext = createContext(initialState);
 export const useStore = () => useContext(StoreContext);
 
-const StoreProvider = StoreContext.Provider;
-
 export const StateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer((state, action) => {
-    switch (action.type) {
-      case "AUTH_SUCCESS":
-        return { ...state, token: action.token };
-      case "AUTH_LOGOUT":
+  const [state, dispatch] = useReducer((state, { type, payload }) => {
+    switch (type) {
+      case AUTH_SUCCESS:
+        return { ...state, token: payload };
+      case AUTH_LOGOUT:
         return { ...state, token: null };
       default:
         return state;
     }
   }, initialState);
 
-  return <StoreProvider value={{ state, dispatch }}>{children}</StoreProvider>;
+  return (
+    <StoreContext.Provider value={{ state, dispatch }}>
+      {children}
+    </StoreContext.Provider>
+  );
 };
