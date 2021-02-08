@@ -1,11 +1,11 @@
+import { useEffect, useRef, useState } from "react";
+import { useStore } from "@store/store";
+import { authSuccess, autoLogout } from "@store/actions";
 import { Formik, Form, Field } from "formik";
 import { Button } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
 import Grid from "@material-ui/core/Grid";
 import axios from "axios";
-import { useStore } from "../store/store";
-import { authSuccess, autoLogout } from "../store/actions";
-import { useEffect, useRef, useState } from "react";
 
 export const LoginForm = () => {
   const [submit, setSubmit] = useState(0);
@@ -111,7 +111,7 @@ export const LoginForm = () => {
                 label="Password"
                 name="password"
                 autoComplete="on"
-                style={{width: '100%'}}
+                style={{ width: "100%" }}
               />
             </Grid>
             <Grid
@@ -126,7 +126,7 @@ export const LoginForm = () => {
                 color="primary"
                 disabled={isSubmitting}
                 onClick={submitForm}
-                style={{width: '100%'}}
+                style={{ width: "100%" }}
               >
                 Login
               </Button>

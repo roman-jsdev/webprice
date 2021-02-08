@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { logout } from "@store/actions";
+import { useStore } from "@store/store";
 import { Redirect } from "react-router-dom";
-import { logout } from "../store/actions";
-import { useStore } from "../store/store";
 
 export const Logout = () => {
   const globalState = useStore();

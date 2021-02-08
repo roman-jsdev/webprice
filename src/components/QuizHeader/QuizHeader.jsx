@@ -1,5 +1,5 @@
-import { QuizHeaderButton } from "../QuizHeaderButton";
-import { QuizHeaderTitle } from "../QuizHeaderTitle";
+import { QuizHeaderButton } from "@components/QuizHeaderButton";
+import { QuizHeaderTitle } from "@components/QuizHeaderTitle";
 import classes from "@components/QuizContainer/QuizContainer.module.css";
 
 export const QuizHeader = () => {

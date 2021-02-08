@@ -1,5 +1,5 @@
-import { NavigationLink } from "./NavigationLink";
-import { useStore } from "../../store/store";
+import { NavigationLink } from "@components/NavigationLink";
+import { useStore } from "@store/store";
 import classes from "./Navbar.module.css";
 import { NavLink } from "react-router-dom";
 

@@ -1,19 +1,19 @@
-import { Cart } from "./Cart/Cart";
-import { CartBody } from "./CartBody";
-import { CartButton } from "./CartButton";
-import { CartHeader } from "./CartHeader";
-import { PriceProvider } from "../context/PriceContext";
-import { QuizContentWrapper } from "./QuizContentWrapper";
-import { QuizHeader } from "./QuizHeader/QuizHeader";
-import { QuizProgress } from "./QuizProgress";
-import { useProgress } from "../context/ProgressContext";
-import { CartListProvider } from "../context/CartListContext";
+import { Cart } from "@components/Cart/Cart";
+import { CartBody } from "@components/CartBody";
+import { CartButton } from "@components/CartButton";
+import { CartHeader } from "@components/CartHeader";
+import { PriceProvider } from "@context/PriceContext";
+import { QuizContentWrapper } from "@components/QuizContentWrapper";
+import { QuizContainer } from "@components/QuizContainer/QuizContainer";
+import { QuizHeader } from "@components/QuizHeader/QuizHeader";
+import { QuizProgress } from "@components/QuizProgress";
+import { useProgress } from "@context/ProgressContext";
+import { CartListProvider } from "@context/CartListContext";
 import { FirstQuizStep } from "@steps/FirstQuizStep";
 import { SecondQuizStep } from "@steps/SecondQuizStep";
 import { ThirdQuizStep } from "@steps/ThirdQuizStep";
 import { FourthQuizStep } from "@steps/FourthQuizStep";
 import { FifthQuizStep } from "@steps/FifthQuizStep";
-import { QuizContainer } from "./QuizContainer/QuizContainer";
 
 export const Quiz = () => {
   const progress = useProgress();

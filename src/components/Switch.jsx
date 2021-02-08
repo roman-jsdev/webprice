@@ -1,9 +1,9 @@
+import { useState } from "react";
+import { storage } from "@src/utils";
+import { useCartList } from "@context/CartListContext";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
-import { useState } from "react";
-import { storage } from "../utils";
-import { useCartList } from "../context/CartListContext";
 
 export default function SwitchesGroup(props) {
   const [state, setState] = useState(!!storage(`button-${props.title}`));

@@ -1,6 +1,6 @@
-import axios from "axios";
 import { Fragment, useEffect, useRef, useState } from "react";
-import { Loader } from "../components/Loader/Loader";
+import { Loader } from "@components/Loader/Loader";
+import axios from "axios";
 
 export const Orders = () => {
   const [response, setResponse] = useState([]);

@@ -1,6 +1,6 @@
-import { usePrice } from "../context/PriceContext";
-import { OrderForm } from "../components/OrderForm";
-import { OrderReview } from "../components/OrderReview";
+import { usePrice } from "@context/PriceContext";
+import { OrderForm } from "@components/OrderForm";
+import { OrderReview } from "@components/OrderReview";
 
 export const FourthQuizStep = () => {
   const price = usePrice();

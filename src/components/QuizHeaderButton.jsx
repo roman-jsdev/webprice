@@ -1,4 +1,4 @@
-import { useProgress } from "../context/ProgressContext";
+import { useProgress } from "@context/ProgressContext";
 import classes from "@components/QuizHeader/Header.module.css";
 
 export const QuizHeaderButton = (props) => {

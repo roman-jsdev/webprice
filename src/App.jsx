@@ -1,14 +1,14 @@
 import { useEffect } from "react";
+import { Logout } from "@components/Logout";
+import { MainWrapper } from "@components/MainWrapper";
+import { Navbar } from "@components/Navbar/Navbar";
+import { ProgressProvider } from "@context/ProgressContext";
+import { Home } from "@pages/Home";
+import { Login } from "@pages/Login";
+import { Orders } from "@pages/Orders";
+import { autoLogin } from "@store/actions";
+import { useStore } from "@store/store";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
-import { Logout } from "./components/Logout";
-import { MainWrapper } from "./components/MainWrapper";
-import { Navbar } from "./components/Navbar/Navbar";
-import { ProgressProvider } from "./context/ProgressContext";
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { Orders } from "./pages/Orders";
-import { autoLogin } from "./store/actions";
-import { useStore } from "./store/store";
 
 function App() {
   const globalState = useStore();

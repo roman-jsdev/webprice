@@ -1,4 +1,4 @@
-import { useProgress } from "../context/ProgressContext";
+import { useProgress } from "@context/ProgressContext";
 
 export const QuizHeaderTitle = (props) => {
   const { progress } = useProgress();

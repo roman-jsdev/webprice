@@ -1,7 +1,7 @@
 import { useRef } from "react";
-import { storage } from "../utils";
-import { useCartList } from "../context/CartListContext";
+import { storage } from "@src/utils";
 import { selectedDesignStyle } from "@src/constants";
+import { useCartList } from "@context/CartListContext";
 
 export const DesignTypes = (props) => {
   const cartList = useCartList();

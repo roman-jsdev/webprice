@@ -1,6 +1,6 @@
-import { priceList } from "../constants";
-import { calculatePrice } from "../utils";
-import { useCartList } from "../context/CartListContext";
+import { priceList } from "@src/constants";
+import { calculatePrice } from "@src/utils";
+import { useCartList } from "@context/CartListContext";
 
 export const OrderReview = () => {
   const list = useCartList();

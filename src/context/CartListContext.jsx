@@ -4,8 +4,8 @@ import {
   storage,
   updateCurrentCartList,
   nextStepCartListFilter,
-} from "../utils";
-import { usePrice } from "./PriceContext";
+} from "@src/utils";
+import { usePrice } from "@context/PriceContext";
 
 const CartListContext = createContext();
 export const useCartList = () => useContext(CartListContext);

@@ -1,6 +1,6 @@
 import { useRef } from "react";
-import { storage } from "../../utils";
-import { useCartList } from "../../context/CartListContext";
+import { storage } from "@src/utils";
+import { useCartList } from "@context/CartListContext";
 import classes from "./WebsiteTypes.module.css";
 
 export const WebsiteTypes = (props) => {

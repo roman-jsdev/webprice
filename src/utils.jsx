@@ -1,4 +1,4 @@
-import { priceList } from "./constants";
+import { priceList } from "@src/constants";
 
 export function storage(key, data = null) {
   if (!data) return JSON.parse(sessionStorage.getItem(key));

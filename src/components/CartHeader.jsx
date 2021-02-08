@@ -1,4 +1,4 @@
-import { usePrice } from "../context/PriceContext";
+import { usePrice } from "@context/PriceContext";
 
 export const CartHeader = () => {
   const price = usePrice();

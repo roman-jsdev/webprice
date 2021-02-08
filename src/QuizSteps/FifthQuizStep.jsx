@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCartList } from "../context/CartListContext";
+import { useCartList } from "@context/CartListContext";
 
 export const FifthQuizStep = () => {
   const list = useCartList();

@@ -1,13 +1,13 @@
+import { useCartList } from "@context/CartListContext";
+import { useProgress } from "@context/ProgressContext";
+import { usePrice } from "@context/PriceContext";
+import { ContactField } from "@components/ContactField";
+import { fieldsData } from "@src/constants";
 import { Formik, Form, Field } from "formik";
 import { Button } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
 import Grid from "@material-ui/core/Grid";
-import { useCartList } from "../context/CartListContext";
-import { useProgress } from "../context/ProgressContext";
 import axios from "axios";
-import { usePrice } from "../context/PriceContext";
-import { fieldsData } from "@src/constants";
-import { ContactField } from "./ContactField";
 
 export const OrderForm = () => {
   const cart = useCartList();
