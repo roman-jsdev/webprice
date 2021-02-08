@@ -62,7 +62,10 @@ export const Orders = () => {
 
   return (
     <div className="row">
-      <div className="row justify-content-center" style={{marginBottom: '35px'}}>
+      <div
+        className="row justify-content-center"
+        style={{ marginBottom: "35px" }}
+      >
         <h1 className="text-center mb-4">Orders</h1>
       </div>
       <div className="row justify-content-center">
@@ -73,7 +76,7 @@ export const Orders = () => {
             <div
               className="mb-4 bg-light p-4 col-xl-5 ms-4 d-flex flex-column justify-content-between column-ease-in"
               key={i}
-              style={{borderRadius: '15px',     border: '1px solid #e8e8e8'}}
+              style={{ borderRadius: "15px", border: "1px solid #e8e8e8" }}
             >
               <div>
                 <div className="text-center mb-3 fs-3 fw-bold text-decoration-underline">

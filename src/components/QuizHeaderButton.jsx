@@ -1,5 +1,5 @@
-import { useProgress } from "../ProgressContext";
-import classes from "./Header.module.css";
+import { useProgress } from "../context/ProgressContext";
+import classes from "@components/QuizHeader/Header.module.css";
 
 export const QuizHeaderButton = (props) => {
   const currentProgress = useProgress();
@@ -9,7 +9,7 @@ export const QuizHeaderButton = (props) => {
       ? currentProgress.setNewProgress(25)
       : currentProgress.setNewProgress(-25);
   };
-  
+
   const disableNext = () => {
     switch (currentProgress.progress) {
       case 0:

@@ -2,11 +2,11 @@ import { Formik, Form, Field } from "formik";
 import { Button } from "@material-ui/core";
 import { TextField } from "formik-material-ui";
 import Grid from "@material-ui/core/Grid";
-import { useCartList } from "../Cart/CartListContext";
-import { useProgress } from "../ProgressContext";
+import { useCartList } from "../context/CartListContext";
+import { useProgress } from "../context/ProgressContext";
 import axios from "axios";
-import { usePrice } from "../Cart/PriceContext";
-import { fieldsData } from "./fieldsData";
+import { usePrice } from "../context/PriceContext";
+import { fieldsData } from "@src/constants";
 import { ContactField } from "./ContactField";
 
 export const OrderForm = () => {

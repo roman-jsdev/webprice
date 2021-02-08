@@ -22,15 +22,12 @@ export const logout = () => {
 
 export const autoLogin = () => {
   const token = localStorage.getItem("token");
-  if (!token) {
+  if (!token) return logout();
+  const expirationDate = new Date(localStorage.getItem("expirationDate"));
+  if (expirationDate <= new Date()) {
     return logout();
   } else {
-    const expirationDate = new Date(localStorage.getItem("expirationDate"));
-    if (expirationDate <= new Date()) {
-      return logout();
-    } else {
-      autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000);
-      return authSuccess(token);
-    }
+    autoLogout((expirationDate.getTime() - new Date().getTime()) / 1000);
+    return authSuccess(token);
   }
 };

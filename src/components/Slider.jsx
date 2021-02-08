@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
-import { useCartList } from "../Cart/CartListContext";
-import { storage } from "../../utils";
+import { useCartList } from "@context/CartListContext";
+import { storage } from "@src/utils";
 import Input from "@material-ui/core/Input";
 import Grid from "@material-ui/core/Grid";
 

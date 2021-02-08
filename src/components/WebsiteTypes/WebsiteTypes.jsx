@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import { storage } from "../../utils";
-import { useCartList } from "../Cart/CartListContext";
-import classes from "./QUIZ_STEP_1_ITEM.module.css";
+import { useCartList } from "../../context/CartListContext";
+import classes from "./WebsiteTypes.module.css";
 
-export const QUIZ_STEP_1_ITEM = (props) => {
+export const WebsiteTypes = (props) => {
   const cartList = useCartList();
 
   const radioRef = useRef();

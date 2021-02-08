@@ -1,12 +1,9 @@
 import { useRef } from "react";
-import { storage } from "../../utils";
-import { useCartList } from "../Cart/CartListContext";
+import { storage } from "../utils";
+import { useCartList } from "../context/CartListContext";
+import { selectedDesignStyle } from "@src/constants";
 
-const selectedStyle = {
-  boxShadow: "0 0px 2px 2px #bfbfbf",
-};
-
-export const QUIZ_STEP_2_ITEM = (props) => {
+export const DesignTypes = (props) => {
   const cartList = useCartList();
   const selectedImg = useRef();
 
@@ -29,7 +26,7 @@ export const QUIZ_STEP_2_ITEM = (props) => {
       >
         <img
           ref={selectedImg}
-          style={storage("design") === props.title ? selectedStyle : null}
+          style={storage("design") === props.title ? selectedDesignStyle : null}
           src={props.imgSrc}
           className="img-fluid img-hover"
           alt="text"

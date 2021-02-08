@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import { useCartList } from "../Cart/CartListContext";
+import { useCartList } from "../context/CartListContext";
 
-export const QUIZ_STEP_5 = () => {
+export const FifthQuizStep = () => {
   const list = useCartList();
 
   useEffect(() => {

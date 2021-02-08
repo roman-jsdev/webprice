@@ -1,5 +1,5 @@
-import { useProgress } from "./ProgressContext";
-import classes from "../containers/Quiz/QuizContainer.module.css";
+import { useProgress } from "../context/ProgressContext";
+import classes from "@components/QuizContainer/QuizContainer.module.css";
 
 export const QuizProgress = ({ progress }) => {
   const currentProgress = useProgress();

@@ -1,7 +1,7 @@
-import { useProgress } from "../ProgressContext";
-import { useCartList } from "./CartListContext";
-import { usePrice } from "./PriceContext";
-import classes from "./Cart.module.css";
+import { useProgress } from "../context/ProgressContext";
+import { useCartList } from "../context/CartListContext";
+import { usePrice } from "../context/PriceContext";
+import classes from "@components/Cart/Cart.module.css";
 
 export const CartButton = ({ title, type }) => {
   const cartList = useCartList();
