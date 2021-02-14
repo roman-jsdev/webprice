@@ -218,3 +218,101 @@ button.MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-contained
     margin: 0 !important;
   }
 }
+
+.LoaderSpinner {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+.LoaderSpinner:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid var(--main-color);
+  border-color: var(--main-color) transparent var(--main-color) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Center {
+  text-align: center;
+}
+
+.Navbar {
+  box-shadow: 0px 1px 9px 0px rgb(47 47 47 / 68%);
+}
+
+.QuizContainer {
+  box-shadow: 0 4px 20px rgb(162 162 162 / 28%);
+  border-radius: 15px;
+  overflow: hidden;
+  height: fit-content;
+  border: 1px solid #dee2e6;
+}
+
+.FullWidth {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.List {
+  border: none !important;
+}
+
+.Label {
+  cursor: pointer;
+  user-select: none;
+}
+
+.Btn {
+  background-color: #ffffff12;
+  border: none;
+  box-shadow: 0 0 10px 2px #ffffff3d;
+  color: white !important;
+}
+
+.Btn:hover {
+  background-color: #ffffff2e;
+  box-shadow: 0 0 10px 2px #ffffff5c;
+}
+
+.Btn:focus {
+  box-shadow: 0 0 10px 2px #ffffff3d;
+}
+
+.Checkout {
+  background-color: var(--main-color);
+  color: white;
+  text-transform: uppercase;
+}
+
+.Checkout:hover {
+  background-color: var(--main-color_hover);
+  color: white;
+}
+
+.Checkout:focus,
+.Clear:focus {
+  box-shadow: none;
+}
+
+.Clear {
+  background-color: #f7f7f7;
+  color: #a8a8a8;
+  text-transform: uppercase;
+}
+
+.Clear:hover {
+  background-color: #efefef;
+  color: #919191;
+}
