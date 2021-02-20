@@ -37,10 +37,10 @@ export const OrdersGrid = ({
                   </div>
                   <div className="col-md-6 text-start border d-flex align-items-center">
                     {typeof order[orderElement as keyof typeof order] ===
-                    "object"
+                      "object"
                       ? splitArrayToNewLine(
-                          order[orderElement as keyof typeof order]
-                        )
+                        order[orderElement as keyof typeof order]
+                      )
                       : order[orderElement as keyof typeof order]}
                   </div>
                 </div>
@@ -57,8 +57,8 @@ export const OrdersGrid = ({
           </div>
         ))
       ) : (
-        <div className="text-center fs-3 fw-bold">No orders!</div>
-      )}
+            <div className="text-center fs-3 fw-bold">No orders!</div>
+          )}
     </div>
   </div>
 );

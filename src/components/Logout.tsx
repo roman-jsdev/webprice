@@ -8,9 +8,7 @@ import { Redirect } from "react-router-dom";
 export const Logout = () => {
   const { dispatch } = useStore();
 
-  useEffect(() => {
-    dispatch(logout());
-  }, []);
+  useEffect(() => dispatch(logout()), []);
 
   return <Redirect to={"/"} />;
 };

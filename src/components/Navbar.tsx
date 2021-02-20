@@ -12,8 +12,8 @@ export const Navbar = ({ links }: ICNavbarLink) => (
         WEBPRICE
       </NavLink>
       <ul className="navbar-nav me-auto mb-0 mb-lg-0 flex-row">
-        {links.map(({ to, title, exact }, index) => (
-          <NavigationLink key={index} to={to} title={title} exact={exact} />
+        {links.map(({ to, title, exact }) => (
+          <NavigationLink key={to} to={to} title={title} exact={exact} />
         ))}
       </ul>
     </div>

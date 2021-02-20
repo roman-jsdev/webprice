@@ -4,9 +4,7 @@ import { IChildren, IPriceContext } from "../interfaces/defaultInterfaces";
 
 const PriceContext = createContext({} as IPriceContext);
 
-export const usePrice = () => {
-  return useContext(PriceContext);
-};
+export const usePrice = () => useContext(PriceContext)
 
 export const PriceProvider = ({ children }: IChildren) => {
   const [price, setPrice] = useState(0);
