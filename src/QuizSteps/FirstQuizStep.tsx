@@ -3,9 +3,9 @@ import { WebsiteTypes } from "../components/WebsiteTypes";
 
 export const FirstQuizStep = () => (
   <>
-    {Object.keys(websiteTypeCards).map((card, index) => (
+    {Object.keys(websiteTypeCards).map((card) => (
       <WebsiteTypes
-        key={index}
+        key={card}
         title={card}
         description={
           websiteTypeCards[card as keyof typeof websiteTypeCards].description

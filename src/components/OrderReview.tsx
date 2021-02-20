@@ -16,8 +16,8 @@ export const OrderReview = () => {
           Price
         </div>
       </div>
-      {(currentList as (string | never)[]).map((cartListElement, index) => (
-        <div className="row mt-2" key={index}>
+      {(currentList as (string | never)[]).map((cartListElement) => (
+        <div className="row mt-2" key={cartListElement}>
           <div className="col-md-8 col-8 mobile-review_title">
             {cartListElement}
           </div>

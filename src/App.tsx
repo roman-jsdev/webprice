@@ -20,9 +20,7 @@ export const App = () => {
 
   sessionStorage.clear();
 
-  useEffect(() => {
-    dispatch(autoLogin());
-  }, []);
+  useEffect(() => dispatch(autoLogin()), []);
 
   const routes = [{ path: "/", exact: true, component: Home }];
 
@@ -39,9 +37,9 @@ export const App = () => {
       <ProgressProvider>
         <MainWrapper>
           <Switch>
-            {routes.map(({ path, exact, component }, index) => (
+            {routes.map(({ path, exact, component }) => (
               <Route
-                key={index}
+                key={path}
                 path={path}
                 exact={exact}
                 component={component}

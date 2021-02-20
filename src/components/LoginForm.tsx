@@ -34,13 +34,13 @@ export const LoginForm = ({
           spacing={1}
           className="d-flex justify-content-center align-items-center text-center"
         >
-          {loginFormFields.map(({ name, type, label }, index) => (
+          {loginFormFields.map(({ name, type, label }) => (
             <Grid
               container
               item
               xs={12}
               className="d-flex justify-content-center"
-              key={index}
+              key={label}
             >
               <Field
                 component={TextField}

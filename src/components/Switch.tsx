@@ -8,12 +8,12 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 
-export default function SwitchesGroup({
+export const SwitchesGroup = ({
   title,
   type,
   price,
   unit,
-}: ISwitchProps) {
+}: ISwitchProps) => {
   const [state, setState] = useState(!!storage(`button-${title}`));
   const { nextStep } = useCartList();
 

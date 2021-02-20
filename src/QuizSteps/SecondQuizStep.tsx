@@ -3,9 +3,9 @@ import { DesignTypes } from "../components/DesignTypes";
 
 export const SecondQuizStep = () => (
   <>
-    {Object.keys(designCards).map((card, index) => (
+    {Object.keys(designCards).map((card) => (
       <DesignTypes
-        key={index}
+        key={card}
         title={card}
         price={designCards[card as keyof typeof designCards].price}
         description={designCards[card as keyof typeof designCards].description}

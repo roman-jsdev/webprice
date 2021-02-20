@@ -30,9 +30,7 @@ export const SliderController = ({
   const inputRef = useRef(0);
   const inputRefSelect = useRef<HTMLInputElement>(null!);
 
-  useEffect(() => {
-    storage(`slider-${type}`, value);
-  }, [type, value]);
+  useEffect(() => storage(`slider-${type}`, value), [type, value]);
 
   const marks = getSliderMarks(step, max);
 

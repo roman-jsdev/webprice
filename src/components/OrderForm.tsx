@@ -31,9 +31,9 @@ export const OrderForm = () => {
       {({ submitForm, isSubmitting }) => (
         <Form>
           <Grid container spacing={1}>
-            {fieldsData.map((field, index) => (
+            {fieldsData.map((field) => (
               <ContactField
-                key={index}
+                key={field[2]}
                 type={field[0]}
                 label={field[1]}
                 name={field[2]}

@@ -51,9 +51,9 @@ export const WebsiteTypes = ({
         </div>
         <p className="m-2 text-center fw-bold mb-0">&#36;{price}</p>
         <ul className="pt-3 p-0 d-flex flex-column">
-          {description.map((descriptionText, index) => (
+          {description.map((descriptionText) => (
             <li
-              key={index}
+              key={descriptionText}
               className="list-group-item list-group-item-light d-flex align-items-center List"
             >
               <i className="fas fa-check me-3"></i>

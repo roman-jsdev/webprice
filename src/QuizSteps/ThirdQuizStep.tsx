@@ -1,12 +1,12 @@
 import { servicesButtons, sliders } from "../constants";
-import SwitchesGroup from "../components/Switch";
+import { SwitchesGroup } from "../components/Switch";
 import { SliderController } from "../containers/SliderController";
 
 export const ThirdQuizStep = () => (
   <>
     <div className="col-md-6 column-ease-in">
-      {Object.keys(sliders).map((slider, index) => (
-        <div className="row mb-2" key={index}>
+      {Object.keys(sliders).map((slider) => (
+        <div className="row mb-2" key={slider}>
           <SliderController
             title={slider}
             type={sliders[slider as keyof typeof sliders].type}
@@ -21,8 +21,8 @@ export const ThirdQuizStep = () => (
     </div>
     <div className="col-md-6 column-ease-in">
       <div className="row">
-        {Object.keys(servicesButtons).map((button, index) => (
-          <div className="row" key={index}>
+        {Object.keys(servicesButtons).map((button) => (
+          <div className="row" key={button}>
             <SwitchesGroup
               title={button}
               type={
